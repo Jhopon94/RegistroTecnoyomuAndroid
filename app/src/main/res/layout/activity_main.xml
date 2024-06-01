@@ -5,4 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/rojitoClaro"
-    tools:context=".MainActivity" />
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="290dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_yomu" />
+
+    <EditText
+        android:id="@+id/etusuario"
+        android:layout_width="332dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="81dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Nombre de Usuario"
+        android:inputType="text"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grisHint"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/etClave"
+        android:layout_width="332dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="52dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etusuario"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grisHint"/>
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="227dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/azulito"
+        android:text="Ingresar"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etClave"
+        app:strokeColor="#000"
+        app:strokeWidth="2dp"
+        android:textColor="@color/white"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
