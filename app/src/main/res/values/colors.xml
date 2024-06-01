@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="rojitoClaro">#FD593F</color>
+    <color name="rojitoOscuro">#C91419</color>
+    <color name="azulito">#1486C9</color>
+</resources>
