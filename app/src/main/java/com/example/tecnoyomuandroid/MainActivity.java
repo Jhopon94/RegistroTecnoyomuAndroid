@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
             case "administrador":
                 AbrirAdmon();
                 break;
+            case "servicioCliente":
+                AbrirServCliente();
+                break;
             default:
                 Toast.makeText(this, "Usuario Incorrecto", Toast.LENGTH_SHORT).show();
                 break;
@@ -30,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private void AbrirAdmon(){
         Intent actividad = new Intent(this, Administrador.class);
+        startActivity(actividad);
+    }
+
+    private void AbrirServCliente(){
+        Intent actividad = new Intent(this, ServicioCliente.class);
         startActivity(actividad);
     }
 }
