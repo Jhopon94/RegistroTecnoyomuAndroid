@@ -2,6 +2,7 @@ package com.example.tecnoyomuandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,5 +16,11 @@ public class Administrador extends AppCompatActivity {
 
     public void CerrarSesion(View vista){
         finish();
+    }
+
+    public void AbrirContabilidad(View vista){
+        Intent intent = new Intent(this, Contabilidad.class);
+        intent.putExtra("admon", true);
+        startActivity(intent);
     }
 }

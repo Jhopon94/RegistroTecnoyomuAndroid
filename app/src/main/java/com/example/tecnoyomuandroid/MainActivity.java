@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
             case "servicioCliente":
                 AbrirServCliente();
                 break;
+            case "contador":
+                AbrirContabilidad();
+                break;
             default:
                 Toast.makeText(this, "Usuario Incorrecto", Toast.LENGTH_SHORT).show();
                 break;
@@ -38,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void AbrirServCliente(){
         Intent actividad = new Intent(this, ServicioCliente.class);
+        startActivity(actividad);
+    }
+
+    private void AbrirContabilidad(){
+        Intent actividad = new Intent(this, Contabilidad.class);
         startActivity(actividad);
     }
 }
