@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Administrador"
+    android:background="@color/rojitoOscuro">
+
+    <TextView
+        android:id="@+id/etAdmon"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@color/azulito"
+        android:gravity="center"
+        android:text="Administración"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAdmon"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/btnEmpleados"
+            style="null"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:backgroundTint="@color/rojitoClaro"
+            android:text="Empleados"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:cornerRadius="0px" />
+
+        <Button
+            android:id="@+id/btnUsuarios"
+            style="null"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:backgroundTint="@color/rojitoClaro"
+            android:text="Usuarios"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:cornerRadius="0px" />
+
+        <Button
+            android:id="@+id/btnClientes"
+            style="null"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:backgroundTint="@color/rojitoClaro"
+            android:text="Clientes"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:cornerRadius="0px" />
+
+        <Button
+            android:id="@+id/btnEquipos"
+            style="null"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:backgroundTint="@color/rojitoClaro"
+            android:text="Equipos"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:cornerRadius="0px" />
+
+        <Button
+            android:id="@+id/btnContabilidad"
+            style="null"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:backgroundTint="@color/rojitoClaro"
+            android:text="Contabilidad"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:cornerRadius="0px" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCerrarSesionAdmon"
+        style="null"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/rojitoOscuro"
+        android:text="Cerrar Sesión"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:cornerRadius="0px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
