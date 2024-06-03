@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Contabilidad"
+    tools:context=".DatosContables"
     android:background="@color/rojitoOscuro">
 
     <TextView
-        android:id="@+id/etContabilidad"
+        android:id="@+id/etDatosContables"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:background="@color/azulito"
         android:gravity="center"
-        android:text="Contabilidad"
+        android:text="Datos Contables"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="48sp"
@@ -22,40 +22,47 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/contContabilidad"
+        android:id="@+id/contDatosContables"
         android:layout_width="0dp"
-        android:layout_height="540dp"
-        android:layout_marginTop="1dp"
+        android:layout_height="0dp"
+        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnCerrarSesionDatosContables"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContabilidad"
-        app:layout_constraintVertical_bias="0.0"
-        android:gravity="center">
-
+        app:layout_constraintTop_toBottomOf="@+id/etDatosContables"
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
-            android:id="@+id/btnDatosContables"
+            android:id="@+id/btnConsultarIngresos"
             style="null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/rojitoClaro"
-            android:onClick="AbrirDatosContables"
-            android:text="Datos Contables"
+            android:text="Consultar Ingresos"
             android:textColor="@color/white"
             android:textSize="48sp"
             app:cornerRadius="0px" />
 
         <Button
-            android:id="@+id/btnInventario"
+            android:id="@+id/btnDeudores"
             style="null"
             android:layout_width="match_parent"
-            android:layout_height="105dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/rojitoClaro"
-            android:onClick="AbrirInventario"
-            android:text="Inventario"
+            android:text="Deudores"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:cornerRadius="0px" />
+
+        <Button
+            android:id="@+id/btnConsultarCompras"
+            style="null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/rojitoClaro"
+            android:text="Consultar Compras"
             android:textColor="@color/white"
             android:textSize="48sp"
             app:cornerRadius="0px" />
@@ -63,18 +70,17 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnCerrarSesionContabilidad"
+        android:id="@+id/btnCerrarSesionDatosContables"
         style="null"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="120dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="CerrarSesion"
-        android:text="Cerrar Sesión"
+        android:text="Volver"
         android:textColor="@color/white"
         android:textSize="48sp"
         app:cornerRadius="0px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contContabilidad" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
