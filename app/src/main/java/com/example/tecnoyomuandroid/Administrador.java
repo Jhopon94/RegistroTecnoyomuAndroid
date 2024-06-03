@@ -28,5 +28,19 @@ public class Administrador extends AppCompatActivity {
         Intent intent = new Intent(this, Empleados.class);
         startActivity(intent);
     }
+    public void AbrirUsuarios(View vista){
+        Intent intent = new Intent(this, Usuarios.class);
+        startActivity(intent);
+    }
+
+    public void AbrirClientes(View vista){
+        Intent intent = new Intent(this, Clientes.class);
+        startActivity(intent);
+    }
+
+    public void AbrirEquipos(View vista){
+        Intent intent = new Intent(this, Equipos.class);
+        startActivity(intent);
+    }
 
 }
