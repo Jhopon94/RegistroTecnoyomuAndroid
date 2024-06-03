@@ -2,6 +2,7 @@ package com.example.tecnoyomuandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,6 +12,11 @@ public class Empleados extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empleados);
+    }
+
+    public void AbrirRegEmpleado(View vista){
+        Intent intent = new Intent(this, RegistrarEmpleado.class);
+        startActivity(intent);
     }
 
     public void CerrarSesion(View vista){

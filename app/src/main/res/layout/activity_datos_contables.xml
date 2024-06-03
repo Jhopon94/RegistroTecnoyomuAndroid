@@ -45,28 +45,6 @@
             android:textSize="48sp"
             app:cornerRadius="0px" />
 
-        <Button
-            android:id="@+id/btnDeudores"
-            style="null"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/rojitoClaro"
-            android:text="Deudores"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            app:cornerRadius="0px" />
-
-        <Button
-            android:id="@+id/btnConsultarCompras"
-            style="null"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/rojitoClaro"
-            android:text="Consultar Compras"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            app:cornerRadius="0px" />
-
     </LinearLayout>
 
     <Button

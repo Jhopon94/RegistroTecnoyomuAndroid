@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TecnoyomuAndroid</string>
+    <string-array name="cargosOpciones">
+        <item>Servicio al Cliente</item>
+        <item>Contador</item>
+        <item>Administrador</item>
+        <item>Reparador</item>
+    </string-array>
 </resources>

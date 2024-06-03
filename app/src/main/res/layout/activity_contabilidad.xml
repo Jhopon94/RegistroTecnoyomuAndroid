@@ -48,18 +48,6 @@
             android:textSize="48sp"
             app:cornerRadius="0px" />
 
-        <Button
-            android:id="@+id/btnInventario"
-            style="null"
-            android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:backgroundTint="@color/rojitoClaro"
-            android:onClick="AbrirInventario"
-            android:text="Inventario"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            app:cornerRadius="0px" />
-
     </LinearLayout>
 
     <Button
