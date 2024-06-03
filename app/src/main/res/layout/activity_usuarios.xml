@@ -42,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/rojitoClaro"
+            android:onClick="AbrirRegUsuario"
             android:text="Registrar Usuario"
             android:textColor="@color/white"
             android:textSize="48sp"

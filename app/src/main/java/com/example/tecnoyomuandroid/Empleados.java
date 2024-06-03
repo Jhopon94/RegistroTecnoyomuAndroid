@@ -19,6 +19,11 @@ public class Empleados extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void AbrirListaEmpleados(View vista){
+        Intent intent = new Intent(this, ListaEmpleados.class);
+        startActivity(intent);
+    }
+
     public void CerrarSesion(View vista){
         finish();
     }

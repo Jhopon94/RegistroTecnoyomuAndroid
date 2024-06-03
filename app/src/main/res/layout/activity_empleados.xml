@@ -54,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/rojitoClaro"
+            android:onClick="AbrirListaEmpleados"
             android:text="Lista de Empleados"
             android:textColor="@color/white"
             android:textSize="48sp"

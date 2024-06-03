@@ -4,31 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorYomu"
-    tools:context=".RegistrarEmpleado">
+    tools:context=".RegistrarUsuario"
+    android:background="@color/colorYomu">
 
-    <EditText
-        android:id="@+id/cajitaNombre"
+    <Spinner
+        android:id="@+id/spinnerEmpleado"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:background="@color/white"
-        android:ems="10"
-        android:hint="Nombre Completo"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grisHint"
-        android:textSize="34sp"
+        android:spinnerMode="dialog"
+        android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
-        android:id="@+id/cajitaCedula"
+        android:id="@+id/cajitaNombreUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -36,15 +31,16 @@
         android:layout_marginEnd="30dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Cédula"
-        android:inputType="number"
+        android:hint="Nombre de Usuario"
+        android:inputType="text"
         android:textColor="@color/black"
         android:textColorHint="@color/grisHint"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCargo" />
+
 
     <Spinner
         android:id="@+id/spinnerCargo"
@@ -58,12 +54,12 @@
         android:spinnerMode="dialog"
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCedula"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEmpleado" />
 
     <EditText
-        android:id="@+id/cajitaCelular"
+        android:id="@+id/cajitaClave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -71,7 +67,7 @@
         android:layout_marginEnd="30dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Celular"
+        android:hint="Contraseña"
         android:inputType="number"
         android:textColor="@color/black"
         android:textColorHint="@color/grisHint"
@@ -79,73 +75,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCargo" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaNombreUsuario" />
 
-    <EditText
-        android:id="@+id/cajitaDireccion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="Dirección"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grisHint"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCelular" />
 
-    <EditText
-        android:id="@+id/cajitaCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="Correo"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grisHint"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaDireccion" />
 
     <Button
         android:id="@+id/btnRegistrarEmpl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/azulito"
-        android:onClick="Registrar"
         android:text="Registrar"
         android:textColor="@color/white"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCorreo" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="Cancelar"
         android:text="Cancelar"
         android:textColor="@color/white"
         android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarEmpl"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
