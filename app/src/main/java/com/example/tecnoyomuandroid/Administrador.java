@@ -23,4 +23,10 @@ public class Administrador extends AppCompatActivity {
         intent.putExtra("admon", true);
         startActivity(intent);
     }
+
+    public void AbrirEmpleados(View vista){
+        Intent intent = new Intent(this, Empleados.class);
+        startActivity(intent);
+    }
+
 }

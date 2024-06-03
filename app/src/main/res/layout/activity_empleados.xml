@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Administrador"
+    tools:context=".Empleados"
     android:background="@color/rojitoOscuro">
 
     <TextView
-        android:id="@+id/etAdmon"
+        android:id="@+id/etEmpleados"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:background="@color/azulito"
         android:gravity="center"
-        android:text="Administración"
+        android:text="Empleados"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="48sp"
@@ -22,71 +22,38 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/contAdmon"
+        android:id="@+id/contEmpleados"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="540dp"
         android:layout_marginTop="1dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAdmon"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/etEmpleados"
+        app:layout_constraintVertical_bias="0.0"
+        android:gravity="center">
+
 
         <Button
-            android:id="@+id/btnEmpleados"
+            android:id="@+id/btnRegEmpleado"
             style="null"
             android:layout_width="match_parent"
-            android:layout_height="105dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/rojitoClaro"
-            android:onClick="AbrirEmpleados"
-            android:text="Empleados"
+            android:text="Registrar Empleado"
             android:textColor="@color/white"
             android:textSize="48sp"
             app:cornerRadius="0px" />
 
         <Button
-            android:id="@+id/btnUsuarios"
+            android:id="@+id/btnListaEmpleados"
             style="null"
             android:layout_width="match_parent"
-            android:layout_height="105dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/rojitoClaro"
-            android:text="Usuarios"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            app:cornerRadius="0px" />
-
-        <Button
-            android:id="@+id/btnClientesAdmon"
-            style="null"
-            android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:backgroundTint="@color/rojitoClaro"
-            android:text="Clientes"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            app:cornerRadius="0px" />
-
-        <Button
-            android:id="@+id/btnEquiposAdmon"
-            style="null"
-            android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:backgroundTint="@color/rojitoClaro"
-            android:text="Equipos"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            app:cornerRadius="0px" />
-
-        <Button
-            android:id="@+id/btnContabilidad"
-            style="null"
-            android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:backgroundTint="@color/rojitoClaro"
-            android:onClick="AbrirContabilidad"
-            android:text="Contabilidad"
+            android:text="Lista de Empleados"
             android:textColor="@color/white"
             android:textSize="48sp"
             app:cornerRadius="0px" />
@@ -94,19 +61,18 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnCerrarSesionAdmon"
+        android:id="@+id/btnCerrarSesionEmpleados"
         style="null"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="CerrarSesion"
-        android:text="Cerrar Sesión"
+        android:text="Volver"
         android:textColor="@color/white"
         android:textSize="48sp"
         app:cornerRadius="0px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contAdmon" />
-
+        app:layout_constraintTop_toBottomOf="@+id/contEmpleados" />
 </androidx.constraintlayout.widget.ConstraintLayout>

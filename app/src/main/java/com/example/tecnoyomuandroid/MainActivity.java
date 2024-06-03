@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void QueAbrir(View vista){
         TextView cajitaUsuario = (TextView) findViewById(R.id.cajitaUsuario);
-        String usuario = cajitaUsuario.getText().toString();
+        String usuario = cajitaUsuario.getText().toString().trim();
         switch (usuario){
             case "administrador":
                 AbrirAdmon();

@@ -24,7 +24,7 @@ public class Contabilidad extends AppCompatActivity {
 
     private void CambiarTextoSesion(){
         Button btnCerrarSesion = (Button) findViewById(R.id.btnCerrarSesionContabilidad);
-        btnCerrarSesion.setText("<-- Volver");
+        btnCerrarSesion.setText("Volver");
     }
 
     public void CerrarSesion(View vista){
