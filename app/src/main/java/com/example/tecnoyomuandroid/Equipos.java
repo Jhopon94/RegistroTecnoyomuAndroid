@@ -19,6 +19,11 @@ public class Equipos extends AppCompatActivity {
         intent.putExtra("registrandoEquipo", true);
         startActivity(intent);
     }
+
+    public void AbrirListaEquiposIng(View vista){
+        Intent intent = new Intent(this, ListaEquiposIngresados.class);
+        startActivity(intent);
+    }
     public void CerrarSesion(View vista){
         finish();
     }

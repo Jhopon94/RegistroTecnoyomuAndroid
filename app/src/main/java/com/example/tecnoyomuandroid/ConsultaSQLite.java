@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.example.tecnoyomuandroid.Entidades.Cliente;
 import com.example.tecnoyomuandroid.Entidades.Empleado;
+import com.example.tecnoyomuandroid.Entidades.Equipo;
 import com.example.tecnoyomuandroid.Entidades.Usuario;
 
 import java.util.ArrayList;
@@ -154,6 +155,41 @@ public class ConsultaSQLite {
             }
         } catch (Exception e) {
             Toast.makeText(context, "Error al consultar clientes en base de datos!", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Equipo> ConsultarEquiposIngresadosSQLite() {
+        try {
+            List<Equipo> listaAuxiliar = new ArrayList<>();
+            CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
+            //Obtenemos los datos de la base de datos
+            Cursor equipos = baseDatos.rawQuery("select * from equipo where entregado=false", null);
+            //Verificar que la consulta tenga datos
+            if (equipos.moveToFirst()) {
+                //Obtenemos todos los datos de la tabla
+                do {
+                    Equipo equipo = new Equipo();
+                    equipo.setId(equipos.getInt(equipos.getColumnIndexOrThrow("id")));
+                    equipo.setIdCliente(equipos.getInt(equipos.getColumnIndexOrThrow("idCliente")));
+                    equipo.setModelo(equipos.getString(equipos.getColumnIndexOrThrow("modelo")));
+                    equipo.setServicio(equipos.getString(equipos.getColumnIndexOrThrow("servicio")));
+                    equipo.setPrecio(equipos.getInt(equipos.getColumnIndexOrThrow("precio")));
+                    equipo.setSaldoPendiente(equipos.getInt(equipos.getColumnIndexOrThrow("saldoPendiente")));
+                    equipo.setEstado(equipos.getString(equipos.getColumnIndexOrThrow("estado")));
+                    //Agregar el equipo a la lista
+                    listaAuxiliar.add(equipo);
+                } while (equipos.moveToNext());
+                baseDatos.close();
+                return listaAuxiliar;
+            } else {
+                Toast.makeText(context, "No hay registros de equipos", Toast.LENGTH_SHORT).show();
+                baseDatos.close();
+                return listaAuxiliar;
+            }
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al consultar equipos en base de datos!", Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
         }
     }
