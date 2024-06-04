@@ -21,6 +21,14 @@ public class CrearBDSQLite extends SQLiteOpenHelper {
                 "correo varchar(20) not null, disponibleParaUsuario boolean not null default true, " +
                 "activo boolean not null default true, " +
                 "fechaRegistro timestamp not null default current_timestamp)");
+
+        BaseDatos.execSQL("create table usuario(idEmpleado int primary key, " +
+                "nombreUsuario varchar(20) not null, clave varchar(20) not null, " +
+                "rol varchar(20) not null, fechaRegistro timestamp not null default current_timestamp)");
+
+        BaseDatos.execSQL("create table cliente(id int primary key, nombre varchar(100) not null, celular varcahr(20) not null, " +
+                "correo varchar(100), direccion varchar(100), serviciosTomados int not null default 1, " +
+                "fechaRegistro timestamp not null default current_timestamp)");
     }
 
     @Override

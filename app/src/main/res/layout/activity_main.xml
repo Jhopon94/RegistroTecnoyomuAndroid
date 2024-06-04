@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/cajitaClave"
+        android:id="@+id/cajitaClaveUsuario"
         android:layout_width="332dp"
         android:layout_height="60dp"
         android:layout_marginTop="52dp"
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaClave"
+        app:layout_constraintTop_toBottomOf="@+id/cajitaClaveUsuario"
         app:strokeColor="#000"
         app:strokeWidth="2dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
