@@ -82,4 +82,28 @@ public class RegistroSQLite {
             throw new RuntimeException(e);
         }
     }
+
+    public void RegistrarClienteSQLite(Cliente cliente){
+        try {
+            CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            //Abrimos lectura y escritura en las tablas
+            SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
+            //Ponemos los valores a registrar
+            ContentValues registro = new ContentValues();
+            registro.put("id", cliente.getId());
+            registro.put("nombre", cliente.getNombre());
+            registro.put("celular", cliente.getCelular());
+            registro.put("correo", cliente.getCorreo());
+            registro.put("direccion", cliente.getDireccion());
+            //Los metemos en la tabla correspondiente
+            baseDatos.insert("cliente", null, registro);
+            //Cerramos la base de datos
+            baseDatos.close();
+            Toast.makeText(context, "Exito al registrar cliente", Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al registrar cliente", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
 }

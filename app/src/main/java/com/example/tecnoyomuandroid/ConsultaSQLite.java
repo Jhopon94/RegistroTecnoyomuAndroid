@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import com.example.tecnoyomuandroid.Entidades.Cliente;
 import com.example.tecnoyomuandroid.Entidades.Empleado;
 import com.example.tecnoyomuandroid.Entidades.Usuario;
 
@@ -119,6 +120,40 @@ public class ConsultaSQLite {
             }
         } catch (Exception e) {
             Toast.makeText(context, "Error al consultar usuarios en base de datos!", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Cliente> ConsultarClientesSQLite() {
+        try {
+            List<Cliente> listaAuxiliar = new ArrayList<>();
+            CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
+            //Obtenemos los datos de la base de datos
+            Cursor clientes = baseDatos.rawQuery("select * from cliente", null);
+            //Verificar que la consulta tenga datos
+            if (clientes.moveToFirst()) {
+                //Obtenemos todos los datos de la tabla
+                do {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(clientes.getInt(clientes.getColumnIndexOrThrow("id")));
+                    cliente.setNombre(clientes.getString(clientes.getColumnIndexOrThrow("nombre")));
+                    cliente.setCelular(clientes.getString(clientes.getColumnIndexOrThrow("celular")));
+                    cliente.setDireccion(clientes.getString(clientes.getColumnIndexOrThrow("direccion")));
+                    cliente.setCorreo(clientes.getString(clientes.getColumnIndexOrThrow("correo")));
+                    cliente.setServiciosTomados(clientes.getInt(clientes.getColumnIndexOrThrow("serviciosTomados")));
+                    //Agregar el cliente a la lista
+                    listaAuxiliar.add(cliente);
+                } while (clientes.moveToNext());
+                baseDatos.close();
+                return listaAuxiliar;
+            } else {
+                Toast.makeText(context, "No hay registros de clientes", Toast.LENGTH_SHORT).show();
+                baseDatos.close();
+                return listaAuxiliar;
+            }
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al consultar clientes en base de datos!", Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
         }
     }

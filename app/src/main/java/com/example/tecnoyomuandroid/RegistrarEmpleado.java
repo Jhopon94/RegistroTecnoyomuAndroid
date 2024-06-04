@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,12 +23,12 @@ public class RegistrarEmpleado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_empleado);
 
-        cajitaNombre = (EditText) findViewById(R.id.cajitaNombre);
-        cajitaCedula = (EditText) findViewById(R.id.cajitaCedula);
+        cajitaNombre = (EditText) findViewById(R.id.cajitaNombreCliente);
+        cajitaCedula = (EditText) findViewById(R.id.cajitaCedulaCliente);
         spCargo = (Spinner) findViewById(R.id.spinnerCargo);
-        cajitaCelular = (EditText) findViewById(R.id.cajitaCelular);
-        cajitaDireccion =  (EditText) findViewById(R.id.cajitaDireccion);
-        cajitaCorreo = (EditText) findViewById(R.id.cajitaCorreo);
+        cajitaCelular = (EditText) findViewById(R.id.cajitaCelularCliente);
+        cajitaDireccion =  (EditText) findViewById(R.id.cajitaDireccionCliente);
+        cajitaCorreo = (EditText) findViewById(R.id.cajitaCorreoCliente);
     }
 
     public void Registrar(View vista){

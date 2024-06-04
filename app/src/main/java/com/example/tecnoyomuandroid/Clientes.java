@@ -19,6 +19,10 @@ public class Clientes extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void AbrirListaClientes(View vista){
+        Intent intent = new Intent(this, ListaClientes.class);
+        startActivity(intent);
+    }
     public void CerrarSesion(View vista){
         finish();
     }

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TecnoyomuAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".ListaClientes"
+            android:exported="false" />
+        <activity
             android:name=".ListaUsuarios"
             android:exported="false" />
         <activity

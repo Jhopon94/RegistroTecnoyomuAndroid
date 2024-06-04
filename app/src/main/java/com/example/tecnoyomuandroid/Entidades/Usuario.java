@@ -1,10 +1,10 @@
 package com.example.tecnoyomuandroid.Entidades;
 
 public class Usuario {
-    int idEmpleado;
-    String nombreUsuario;
-    String clave;
-    String rol;
+    private int idEmpleado;
+    private String nombreUsuario;
+    private String clave;
+    private String rol;
 
     public int getIdEmpleado() {
         return idEmpleado;

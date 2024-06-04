@@ -2,15 +2,15 @@ package com.example.tecnoyomuandroid.Entidades;
 
 public class Empleado {
 
-    int id;
-    String nombre;
-    String cargo;
-    String celular;
-    String correo;
-    String direccion;
-    boolean disponibleParaUsuario;
-    boolean activo;
-    String fechaRegistro;
+    private int id;
+    private String nombre;
+    private String cargo;
+    private String celular;
+    private String correo;
+    private String direccion;
+    private boolean disponibleParaUsuario;
+    private boolean activo;
+    private String fechaRegistro;
 
     public String getFechaRegistro() {
         return fechaRegistro;

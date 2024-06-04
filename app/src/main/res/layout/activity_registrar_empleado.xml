@@ -8,7 +8,7 @@
     tools:context=".RegistrarEmpleado">
 
     <EditText
-        android:id="@+id/cajitaNombre"
+        android:id="@+id/cajitaNombreCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -28,7 +28,7 @@
 
 
     <EditText
-        android:id="@+id/cajitaCedula"
+        android:id="@+id/cajitaCedulaCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaNombreCliente" />
 
     <Spinner
         android:id="@+id/spinnerCargo"
@@ -59,11 +59,11 @@
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCedula"
+        app:layout_constraintTop_toBottomOf="@+id/cajitaCedulaCliente"
         />
 
     <EditText
-        android:id="@+id/cajitaCelular"
+        android:id="@+id/cajitaCelularCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinnerCargo" />
 
     <EditText
-        android:id="@+id/cajitaDireccion"
+        android:id="@+id/cajitaDireccionCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -98,10 +98,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCelular" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaCelularCliente" />
 
     <EditText
-        android:id="@+id/cajitaCorreo"
+        android:id="@+id/cajitaCorreoCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaDireccion" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaDireccionCliente" />
 
     <Button
         android:id="@+id/btnRegistrarEmpl"
@@ -131,7 +131,7 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaCorreoCliente" />
 
     <Button
         android:id="@+id/btnCancelar"
