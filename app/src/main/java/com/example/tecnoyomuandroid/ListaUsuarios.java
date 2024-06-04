@@ -12,28 +12,28 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.tecnoyomuandroid.Entidades.Empleado;
+import com.example.tecnoyomuandroid.Entidades.Usuario;
 
 import java.util.List;
 
-public class ListaEmpleados extends AppCompatActivity {
+public class ListaUsuarios extends AppCompatActivity {
 
     private LinearLayout contLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_empleados);
+        setContentView(R.layout.activity_lista_usuarios);
 
-        contLista = (LinearLayout) findViewById(R.id.contListaEmpl);
+        contLista = (LinearLayout) findViewById(R.id.contListaUsuarios);
         contLista.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
 
-
-        //Llenamos la lista de empleados al abrir el activity
-        if(!ListaEmpleadosSQLite().isEmpty()){
-            List<Empleado> listaEmpleados = ListaEmpleadosSQLite();
-            for(Empleado empleado : listaEmpleados){
+        //Llenamos la lista de usuarios al abrir el activity
+        if(!ListaUsuariosSQLite().isEmpty()){
+            List<Usuario> listaUsuarios = ListaUsuariosSQLite();
+            for(Usuario usuario : listaUsuarios){
                 Button boton = new Button(this);
-                boton.setText(empleado.getNombre());
+                boton.setText(usuario.getNombreUsuario());
                 boton.setTextSize(20);
                 boton.setBackgroundColor(ContextCompat.getColor(this, R.color.azulito));
                 boton.setTextColor(Color.WHITE);
@@ -45,13 +45,13 @@ public class ListaEmpleados extends AppCompatActivity {
                 contLista.addView(linea);
             }
         }else {
-            Toast.makeText(this, "Lista de empleados vacía o error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lista de usuarios vacía o error", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private List<Empleado> ListaEmpleadosSQLite(){
+    private List<Usuario> ListaUsuariosSQLite(){
         ConsultaSQLite consulta = new ConsultaSQLite(this);
-        return consulta.ConsultarEmpleadosSQLite();
+        return consulta.ConsultarUsuariosSQLite();
     }
 
     public void Cancelar(View vista){

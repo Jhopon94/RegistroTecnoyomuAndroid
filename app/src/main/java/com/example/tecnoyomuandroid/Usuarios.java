@@ -19,6 +19,11 @@ public class Usuarios extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void AbrirListaUsuarios(View vista){
+        Intent intent = new Intent(this, ListaUsuarios.class);
+        startActivity(intent);
+    }
+
     public void CerrarSesion(View vista){
         finish();
     }

@@ -88,7 +88,6 @@ public class RegistrarUsuario extends AppCompatActivity {
                 finish();
             }
         }
-        //Acomodar no mas disponible apra usuario al empleado que se registre el usuario
     }
 
     public void Cancelar(View vista){
