@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorYomu"
-    tools:context=".RegistrarEmpleado">
+    tools:context=".RegistrarEquipo"
+    android:background="@color/colorYomu">
+
 
     <EditText
         android:id="@+id/cajitaModeloEquipoReg"
@@ -16,7 +17,7 @@
         android:layout_marginEnd="30dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Nombre Completo"
+        android:hint="Modelo del Equipo"
         android:inputType="text"
         android:textColor="@color/black"
         android:textColorHint="@color/grisHint"
@@ -24,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etNombreClienteRegEquipo" />
 
 
     <EditText
@@ -36,8 +37,8 @@
         android:layout_marginEnd="30dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Cédula"
-        android:inputType="number"
+        android:hint="Servicio Entregado"
+        android:inputType="text"
         android:textColor="@color/black"
         android:textColorHint="@color/grisHint"
         android:textSize="34sp"
@@ -46,21 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cajitaModeloEquipoReg" />
 
-    <Spinner
-        android:id="@+id/spinnerCargo"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@color/azulito"
-        android:entries="@array/cargosOpciones"
-        android:spinnerMode="dialog"
-        android:textAlignment="textStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaServicioEquipoReg"
-        />
 
     <EditText
         android:id="@+id/cajitaPrecioEquipoReg"
@@ -71,7 +57,7 @@
         android:layout_marginEnd="30dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Celular"
+        android:hint="Precio"
         android:inputType="number"
         android:textColor="@color/black"
         android:textColorHint="@color/grisHint"
@@ -79,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCargo" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaServicioEquipoReg" />
 
     <EditText
         android:id="@+id/cajitaAbonoEquipoReg"
@@ -90,8 +76,8 @@
         android:layout_marginEnd="30dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Dirección"
-        android:inputType="text"
+        android:hint="Abono"
+        android:inputType="number"
         android:textColor="@color/black"
         android:textColorHint="@color/grisHint"
         android:textSize="34sp"
@@ -100,52 +86,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cajitaPrecioEquipoReg" />
 
-    <EditText
-        android:id="@+id/cajitaCorreoCliente"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="Correo"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grisHint"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaAbonoEquipoReg" />
-
     <Button
         android:id="@+id/btnRegistrarEquipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/azulito"
         android:onClick="Registrar"
         android:text="Registrar"
         android:textColor="@color/white"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCorreoCliente" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="70dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="Cancelar"
         android:text="Cancelar"
         android:textColor="@color/white"
         android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/etNombreClienteRegEquipo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="TextView"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarEquipo"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

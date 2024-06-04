@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.example.tecnoyomuandroid.Entidades.Cliente;
 import com.example.tecnoyomuandroid.Entidades.Empleado;
+import com.example.tecnoyomuandroid.Entidades.Equipo;
 import com.example.tecnoyomuandroid.Entidades.Usuario;
 
 public class RegistroSQLite {
@@ -103,6 +104,30 @@ public class RegistroSQLite {
 
         } catch (Exception e) {
             Toast.makeText(context, "Error al registrar cliente", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void RegistrarEquipoSQLite(Equipo equipo){
+        try {
+            CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            //Abrimos lectura y escritura en las tablas
+            SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
+            //Ponemos los valores a registrar
+            ContentValues registro = new ContentValues();
+            registro.put("idCliente", equipo.getIdCliente());
+            registro.put("modelo", equipo.getModelo());
+            registro.put("servicio", equipo.getServicio());
+            registro.put("precio", equipo.getPrecio());
+            registro.put("saldoPendiente", equipo.getSaldoPendiente());
+            //Los metemos en la tabla correspondiente
+            baseDatos.insert("equipo", null, registro);
+            //Cerramos la base de datos
+            baseDatos.close();
+            Toast.makeText(context, "Exito al registrar equipo", Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al registrar equipo", Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
         }
     }

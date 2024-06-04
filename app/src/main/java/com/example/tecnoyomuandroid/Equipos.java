@@ -2,6 +2,7 @@ package com.example.tecnoyomuandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,6 +14,11 @@ public class Equipos extends AppCompatActivity {
         setContentView(R.layout.activity_equipos);
     }
 
+    public void AbrirListaClientesEquipos(View vista){
+        Intent intent = new Intent(this, ListaClientes.class);
+        intent.putExtra("registrandoEquipo", true);
+        startActivity(intent);
+    }
     public void CerrarSesion(View vista){
         finish();
     }

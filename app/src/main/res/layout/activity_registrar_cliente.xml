@@ -8,7 +8,7 @@
     android:background="@color/colorYomu">
 
     <EditText
-        android:id="@+id/cajitaNombreCliente"
+        android:id="@+id/cajitaModeloEquipoReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -28,7 +28,7 @@
 
 
     <EditText
-        android:id="@+id/cajitaCedulaCliente"
+        android:id="@+id/cajitaServicioEquipoReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -44,11 +44,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaNombreCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaModeloEquipoReg" />
 
 
     <EditText
-        android:id="@+id/cajitaCelularCliente"
+        android:id="@+id/cajitaPrecioEquipoReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -64,10 +64,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCedulaCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaServicioEquipoReg" />
 
     <EditText
-        android:id="@+id/cajitaDireccionCliente"
+        android:id="@+id/cajitaAbonoEquipoReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaCelularCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaPrecioEquipoReg" />
 
     <EditText
         android:id="@+id/cajitaCorreoCliente"
@@ -102,10 +102,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaDireccionCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaAbonoEquipoReg" />
 
     <Button
-        android:id="@+id/btnRegistrarEmpl"
+        android:id="@+id/btnRegistrarEquipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"

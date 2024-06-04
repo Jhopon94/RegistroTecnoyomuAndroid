@@ -23,11 +23,11 @@ public class RegistrarEmpleado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_empleado);
 
-        cajitaNombre = (EditText) findViewById(R.id.cajitaNombreCliente);
-        cajitaCedula = (EditText) findViewById(R.id.cajitaCedulaCliente);
+        cajitaNombre = (EditText) findViewById(R.id.cajitaModeloEquipoReg);
+        cajitaCedula = (EditText) findViewById(R.id.cajitaServicioEquipoReg);
         spCargo = (Spinner) findViewById(R.id.spinnerCargo);
-        cajitaCelular = (EditText) findViewById(R.id.cajitaCelularCliente);
-        cajitaDireccion =  (EditText) findViewById(R.id.cajitaDireccionCliente);
+        cajitaCelular = (EditText) findViewById(R.id.cajitaPrecioEquipoReg);
+        cajitaDireccion =  (EditText) findViewById(R.id.cajitaAbonoEquipoReg);
         cajitaCorreo = (EditText) findViewById(R.id.cajitaCorreoCliente);
     }
 

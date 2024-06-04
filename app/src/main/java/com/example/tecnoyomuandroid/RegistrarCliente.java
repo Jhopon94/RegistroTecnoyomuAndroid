@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.tecnoyomuandroid.Entidades.Cliente;
-import com.example.tecnoyomuandroid.Entidades.Empleado;
 
 public class RegistrarCliente extends AppCompatActivity {
 
@@ -23,10 +22,10 @@ public class RegistrarCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_cliente);
 
-        cajitaNombre = (EditText) findViewById(R.id.cajitaNombreCliente);
-        cajitaCedula = (EditText) findViewById(R.id.cajitaCedulaCliente);
-        cajitaCelular = (EditText) findViewById(R.id.cajitaCelularCliente);
-        cajitaDireccion = (EditText) findViewById(R.id.cajitaDireccionCliente);
+        cajitaNombre = (EditText) findViewById(R.id.cajitaModeloEquipoReg);
+        cajitaCedula = (EditText) findViewById(R.id.cajitaServicioEquipoReg);
+        cajitaCelular = (EditText) findViewById(R.id.cajitaPrecioEquipoReg);
+        cajitaDireccion = (EditText) findViewById(R.id.cajitaAbonoEquipoReg);
         cajitaCorreo = (EditText) findViewById(R.id.cajitaCorreoCliente);
     }
 
