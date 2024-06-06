@@ -1,8 +1,11 @@
 package com.example.tecnoyomuandroid;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,11 +26,21 @@ public class ListaClientes extends AppCompatActivity {
 
     private boolean registrandoEquipo;
     private List<Cliente> listaClientes;
+    private ActivityResultLauncher resultadoActividad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_clientes);
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Configuramos el objeto que va a recibir el resultado de la actividad de edicion para poder cerrar la lista ///
+        resultadoActividad = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if(result.getResultCode() == Activity.RESULT_OK){
+                        recreate();
+                    }
+                });
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         registrandoEquipo = this.getIntent().hasExtra("registrandoEquipo");
 
@@ -68,7 +81,7 @@ public class ListaClientes extends AppCompatActivity {
         if(registrandoEquipo){
             AbrirRegistroEquipo(cliente);
         }else{
-            Toast.makeText(this, "Editar a " + cliente.getNombre(), Toast.LENGTH_SHORT).show();
+            AbrirDetalles(cliente);
         }
     }
 
@@ -82,6 +95,12 @@ public class ListaClientes extends AppCompatActivity {
     private List<Cliente> ListaClientesSQLite(){
         ConsultaSQLite consulta = new ConsultaSQLite(this);
         return consulta.ConsultarClientesSQLite();
+    }
+
+    private void AbrirDetalles(Cliente cliente){
+        Intent intent = new Intent(this, RegistrarCliente.class);
+        intent.putExtra("vieneDeLista", cliente);
+        resultadoActividad.launch(intent);
     }
 
     public void Cancelar(View vista){

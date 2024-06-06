@@ -39,7 +39,7 @@ public class RegistrarUsuario extends AppCompatActivity {
         spEmpleados = (Spinner) findViewById(R.id.spinnerEmpleado);
         cajitaNombreusuario = (EditText) findViewById(R.id.cajitaNombreUsuario);
         cajitaClave = (EditText) findViewById(R.id.cajitaClaveUsuario);
-        btnRegistrar = (Button) findViewById(R.id.btnRegistrarUsuario);
+        btnRegistrar = (Button) findViewById(R.id.btnRegistrarCliente);
         listaEmpleadosParaUsuario = new ArrayList<>(); //Para poder usar el objeto elegido segun nombre en el spinner
         usuarioDesdeLista = new Usuario();
 

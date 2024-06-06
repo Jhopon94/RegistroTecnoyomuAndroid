@@ -38,7 +38,7 @@ public class RegistrarEmpleado extends AppCompatActivity {
         cajitaCelular = (EditText) findViewById(R.id.cajitaPrecioEquipoReg);
         cajitaDireccion = (EditText) findViewById(R.id.cajitaAbonoEquipoReg);
         cajitaCorreo = (EditText) findViewById(R.id.cajitaCorreoCliente);
-        btnRegistrar = (Button) findViewById(R.id.btnRegistrarUsuario);
+        btnRegistrar = (Button) findViewById(R.id.btnRegistrarCliente);
         empleadoDesdeLista = new Empleado();
 
         //Entrar en modo detalles si viene desde la lista

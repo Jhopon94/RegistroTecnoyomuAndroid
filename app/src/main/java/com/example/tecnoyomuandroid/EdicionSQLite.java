@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import com.example.tecnoyomuandroid.Entidades.Cliente;
 import com.example.tecnoyomuandroid.Entidades.Empleado;
 import com.example.tecnoyomuandroid.Entidades.Usuario;
 
@@ -56,6 +57,29 @@ public class EdicionSQLite {
 
         } catch (Exception e) {
             Toast.makeText(context, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void EditarClienteSQLite(Cliente cliente){
+        try {
+            CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            //Abrimos lectura y escritura en las tablas
+            SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
+            //Ponemos los valores a registrar
+            ContentValues edicion = new ContentValues();
+            edicion.put("nombre", cliente.getNombre());
+            edicion.put("celular", cliente.getCelular());
+            edicion.put("correo", cliente.getCorreo());
+            edicion.put("direccion", cliente.getDireccion());
+            //Los metemos en la tabla correspondiente
+            baseDatos.update("cliente", edicion, "id=" + cliente.getId(), null);
+            //Cerramos la base de datos
+            baseDatos.close();
+            Toast.makeText(context, "Exito al editar cliente", Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al editar cliente", Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
         }
     }
