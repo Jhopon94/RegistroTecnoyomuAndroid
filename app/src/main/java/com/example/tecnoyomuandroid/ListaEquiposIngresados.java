@@ -64,7 +64,7 @@ public class ListaEquiposIngresados extends AppCompatActivity {
                 contLista.addView(linea);
             }
         }else {
-            Toast.makeText(this, "Lista de clientes vacía o error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lista de equipos vacía o error", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TecnoyomuAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".DetallesEquipoEntregado"
+            android:exported="false" />
+        <activity
             android:name=".ListaEquiposEntregados"
             android:exported="false" />
         <activity

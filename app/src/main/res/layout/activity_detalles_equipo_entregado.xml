@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorYomu"
-    tools:context=".EditarEquipoIngresado">
+    tools:context=".DetallesEquipoEntregado"
+    android:background="@color/colorYomu">
 
     <TextView
         android:id="@+id/etModeloEquipoEntreg"
@@ -45,78 +45,30 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="Precio:"
-        android:textSize="28sp"
         android:textColor="@color/black"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etServicioEquipoEntreg" />
 
-    <TextView
-        android:id="@+id/etSaldoPendienteEquipoEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="Saldo Pendiente:"
-        android:textSize="28sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPrecioEquipoEntreg" />
-
-    <Button
-        android:id="@+id/btnMarcarEntregado"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/azulito"
-        android:onClick="MarcarEntregado"
-        android:text="Marcar como Entregado"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSaldoPendienteEquipoEdit" />
-
-    <Button
-        android:id="@+id/btnAbonar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/azulito"
-        android:onClick="MostrarDialogoAbono"
-        android:text="Abonar"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMarcarEntregado" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="100dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="Cancelar"
         android:text="Cancelar"
         android:textColor="@color/white"
         android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAbonar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/etNombreClienteEquipoEntreg"
@@ -155,25 +107,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:id="@+id/lineaTres"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/etSaldoPendienteEquipoEdit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <View
-        android:id="@+id/lineaCuatro"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="40dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btnMarcarEntregado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

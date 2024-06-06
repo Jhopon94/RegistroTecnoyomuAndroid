@@ -24,6 +24,11 @@ public class Equipos extends AppCompatActivity {
         Intent intent = new Intent(this, ListaEquiposIngresados.class);
         startActivity(intent);
     }
+
+    public void AbrirListaEquiposEntregados(View vista){
+        Intent intent = new Intent(this, ListaEquiposEntregados.class);
+        startActivity(intent);
+    }
     public void CerrarSesion(View vista){
         finish();
     }

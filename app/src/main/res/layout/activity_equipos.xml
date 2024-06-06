@@ -66,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/rojitoClaro"
+            android:onClick="AbrirListaEquiposEntregados"
             android:text="Equipos Entregados"
             android:textColor="@color/white"
             android:textSize="48sp"

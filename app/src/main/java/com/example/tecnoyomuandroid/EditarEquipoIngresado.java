@@ -35,10 +35,10 @@ public class EditarEquipoIngresado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_equipo_ingresado);
 
-        etNombreCliente = (TextView) findViewById(R.id.etNombreClienteEquipo);
-        etModelo = (TextView) findViewById(R.id.etModeloEquipoEdit);
-        etServicio = (TextView) findViewById(R.id.etServicioEquipoEdit);
-        etPrecio = (TextView) findViewById(R.id.etPrecioEquipoEdit);
+        etNombreCliente = (TextView) findViewById(R.id.etNombreClienteEquipoEntreg);
+        etModelo = (TextView) findViewById(R.id.etModeloEquipoEntreg);
+        etServicio = (TextView) findViewById(R.id.etServicioEquipoEntreg);
+        etPrecio = (TextView) findViewById(R.id.etPrecioEquipoEntreg);
         etSaldoPendiente = (TextView) findViewById(R.id.etSaldoPendienteEquipoEdit);
         btnAbonar = (Button) findViewById(R.id.btnAbonar);
         btnMarcarEntregado = (Button) findViewById(R.id.btnMarcarEntregado);
