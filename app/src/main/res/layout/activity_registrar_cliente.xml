@@ -95,7 +95,7 @@
         android:background="@color/white"
         android:ems="10"
         android:hint="Correo"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:textColorHint="@color/grisHint"
         android:textSize="34sp"

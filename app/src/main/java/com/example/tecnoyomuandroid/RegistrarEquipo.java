@@ -2,6 +2,8 @@ package com.example.tecnoyomuandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -31,7 +33,7 @@ public class RegistrarEquipo extends AppCompatActivity {
         cajitaServicio = (EditText) findViewById(R.id.cajitaServicioEquipoReg);
         cajitaPrecio = (EditText) findViewById(R.id.cajitaPrecioEquipoReg);
         cajitaAbono = (EditText) findViewById(R.id.cajitaAbonoEquipoReg);
-        etNombreCliente = (TextView)findViewById(R.id.etNombreClienteRegEquipo);
+        etNombreCliente = (TextView) findViewById(R.id.etNombreClienteRegEquipo);
         listaCajitas = new EditText[]{cajitaAbono, cajitaPrecio, cajitaModelo, cajitaServicio};
 
         //Obtener nombre y id de cliente, y si no hay, cerrar el activity
@@ -53,17 +55,22 @@ public class RegistrarEquipo extends AppCompatActivity {
             String servicio = cajitaServicio.getText().toString();
             int precio = Integer.parseInt(cajitaPrecio.getText().toString());
             int saldoPendiente = precio - Integer.parseInt(cajitaAbono.getText().toString());
-            //Acomodar el objeto Equipo
-            Equipo equipo = new Equipo();
-            equipo.setIdCliente(idCliente);
-            equipo.setModelo(modelo);
-            equipo.setServicio(servicio);
-            equipo.setPrecio(precio);
-            equipo.setSaldoPendiente(saldoPendiente);
-            //Proceder a registrar
-            RegistroSQLite registrar = new RegistroSQLite(this);
-            registrar.RegistrarEquipoSQLite(equipo);
-            finish();
+            boolean abonoValido = saldoPendiente >= 0;
+            if(abonoValido){
+                //Acomodar el objeto Equipo
+                Equipo equipo = new Equipo();
+                equipo.setIdCliente(idCliente);
+                equipo.setModelo(modelo);
+                equipo.setServicio(servicio);
+                equipo.setPrecio(precio);
+                equipo.setSaldoPendiente(saldoPendiente);
+                //Proceder a registrar
+                RegistroSQLite registrar = new RegistroSQLite(this);
+                registrar.RegistrarEquipoSQLite(equipo);
+                FinalizarConRespuesta();
+            }else{
+                Toast.makeText(this, "El abono no es válido!", Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(this, "Debes llenar todos los campos, si no hay abono, poner cero!", Toast.LENGTH_SHORT).show();
         }
@@ -78,6 +85,12 @@ public class RegistrarEquipo extends AppCompatActivity {
             }
         }
         return bandera;
+    }
+
+    private void FinalizarConRespuesta() {
+        Intent intent = new Intent();
+        setResult(123, intent);
+        finish();
     }
 
     public void Cancelar(View vista) {

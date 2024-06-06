@@ -39,6 +39,9 @@ public class ListaClientes extends AppCompatActivity {
                     if(result.getResultCode() == Activity.RESULT_OK){
                         recreate();
                     }
+                    if(result.getResultCode() == 123){
+                        finish();
+                    }
                 });
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -89,7 +92,7 @@ public class ListaClientes extends AppCompatActivity {
         Intent intent = new Intent(this, RegistrarEquipo.class);
         intent.putExtra("idCliente", cliente.getId());
         intent.putExtra("nombreCliente", cliente.getNombre());
-        startActivity(intent);
+        resultadoActividad.launch(intent);
     }
 
     private List<Cliente> ListaClientesSQLite(){

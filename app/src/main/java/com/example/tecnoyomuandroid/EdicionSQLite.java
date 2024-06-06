@@ -83,4 +83,34 @@ public class EdicionSQLite {
             throw new RuntimeException(e);
         }
     }
+
+    public void MarcarComoEntregado(int idEquipo){
+        try {
+            CrearBDSQLite marcar = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            SQLiteDatabase baseDatos = marcar.getWritableDatabase();
+            ContentValues marcarEntregado = new ContentValues();
+            marcarEntregado.put("entregado", true);
+            baseDatos.update("equipo", marcarEntregado, "id=" + idEquipo, null);
+            baseDatos.close();
+            Toast.makeText(context, "Equipo marcado como entregado exitosamente!", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al marcar equipo como entregado!", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void AjustarSaldoEquipo(int saldo, int idEquipo){
+        try {
+            CrearBDSQLite marcar = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            SQLiteDatabase baseDatos = marcar.getWritableDatabase();
+            ContentValues marcarEntregado = new ContentValues();
+            marcarEntregado.put("saldoPendiente", saldo);
+            baseDatos.update("equipo", marcarEntregado, "id=" + idEquipo, null);
+            baseDatos.close();
+            Toast.makeText(context, "Saldo pendiente ajustado exitosamente!", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al ajustar el saldo del equipo!", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
 }

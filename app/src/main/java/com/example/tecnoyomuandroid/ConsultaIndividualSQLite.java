@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import com.example.tecnoyomuandroid.Entidades.Cliente;
 import com.example.tecnoyomuandroid.Entidades.Empleado;
 import com.example.tecnoyomuandroid.Entidades.Usuario;
 
@@ -39,6 +40,31 @@ public class ConsultaIndividualSQLite {
             }
         } catch (Exception e) {
             Toast.makeText(contexto, "Error al consultar Empleado!", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Cliente ConsultarCliente(int id){
+        try {
+            Cliente cliente = new Cliente();
+            CrearBDSQLite manejadorBD = new CrearBDSQLite(contexto, "RegistroTecnoyomu", null, 1);
+            SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
+            Cursor clientes = baseDatos.rawQuery("SELECT * FROM cliente WHERE id=" + id, null);
+            if(clientes.moveToFirst()){
+                do{
+                    cliente.setNombre(clientes.getString(clientes.getColumnIndexOrThrow("nombre")));
+                    cliente.setId(clientes.getInt(clientes.getColumnIndexOrThrow("id")));
+                    cliente.setCelular(clientes.getString(clientes.getColumnIndexOrThrow("celular")));
+                    cliente.setDireccion(clientes.getString(clientes.getColumnIndexOrThrow("direccion")));
+                    cliente.setCorreo(clientes.getString(clientes.getColumnIndexOrThrow("correo")));
+                    return cliente;
+                }while(clientes.moveToNext());
+            }else {
+                Toast.makeText(contexto, "No se encontró cliente con el id proporcionado!", Toast.LENGTH_SHORT).show();
+                return null;
+            }
+        } catch (Exception e) {
+            Toast.makeText(contexto, "Error al consultar Cliente!", Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
         }
     }
