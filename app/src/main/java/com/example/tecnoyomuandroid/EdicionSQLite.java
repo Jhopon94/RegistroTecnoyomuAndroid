@@ -113,4 +113,19 @@ public class EdicionSQLite {
             throw new RuntimeException(e);
         }
     }
+
+    public void MarcarReparado(int idEquipo){
+        try {
+            CrearBDSQLite marcar = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            SQLiteDatabase baseDatos = marcar.getWritableDatabase();
+            ContentValues marcarReparado = new ContentValues();
+            marcarReparado.put("estado", "reparado");
+            baseDatos.update("equipo", marcarReparado, "id=" + idEquipo, null);
+            baseDatos.close();
+            Toast.makeText(context, "Cambio de estado Exitoso!", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al cambiar estado!", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
 }

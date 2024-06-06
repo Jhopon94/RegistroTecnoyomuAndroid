@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -25,6 +26,7 @@ public class EditarEquipoIngresado extends AppCompatActivity {
     private TextView etPrecio;
     private TextView etSaldoPendiente;
     private TextView etNombreCliente;
+    private TextView etEstado;
     private Cliente cliente;
     private Button btnAbonar;
     private Button btnMarcarEntregado;
@@ -40,6 +42,7 @@ public class EditarEquipoIngresado extends AppCompatActivity {
         etServicio = (TextView) findViewById(R.id.etServicioEquipoEntreg);
         etPrecio = (TextView) findViewById(R.id.etPrecioEquipoEntreg);
         etSaldoPendiente = (TextView) findViewById(R.id.etSaldoPendienteEquipoEdit);
+        etEstado = (TextView) findViewById(R.id.etEstadoEquipoEdit);
         btnAbonar = (Button) findViewById(R.id.btnAbonar);
         btnMarcarEntregado = (Button) findViewById(R.id.btnMarcarEntregado);
         equipoRecibido = (Equipo) this.getIntent().getSerializableExtra("equipo");
@@ -47,7 +50,11 @@ public class EditarEquipoIngresado extends AppCompatActivity {
             if (equipoRecibido.getSaldoPendiente() == 0) {
                 btnAbonar.setEnabled(false);
                 btnAbonar.setBackgroundColor(Color.LTGRAY);
-            }else{
+            }else {
+                btnMarcarEntregado.setEnabled(false);
+                btnMarcarEntregado.setBackgroundColor(Color.LTGRAY);
+            }
+            if(equipoRecibido.getEstado().equals("ingresado")){
                 btnMarcarEntregado.setEnabled(false);
                 btnMarcarEntregado.setBackgroundColor(Color.LTGRAY);
             }
@@ -65,12 +72,22 @@ public class EditarEquipoIngresado extends AppCompatActivity {
     }
 
     private void AcomodarDetalles() {
+        String estadoEquipo = equipoRecibido.getEstado();
+        int saldoPendiente = equipoRecibido.getSaldoPendiente();
         etNombreCliente.setText(cliente.getNombre());
         etModelo.setText("Modelo: " + equipoRecibido.getModelo());
         etServicio.setText("Servicio: " + equipoRecibido.getServicio());
         etPrecio.setText("Precio: $ " + String.valueOf(equipoRecibido.getPrecio()));
-        etSaldoPendiente.setText("Debe: $ " + String.valueOf(equipoRecibido.getSaldoPendiente()));
-
+        etSaldoPendiente.setText("Debe: $ " + String.valueOf(saldoPendiente));
+        etEstado.setText("Estado: " + estadoEquipo);
+        if(saldoPendiente > 0){
+            etSaldoPendiente.setTextColor(Color.RED);
+            etSaldoPendiente.setTypeface(null, Typeface.BOLD);
+        }
+        if(estadoEquipo.equals("ingresado")){
+            etEstado.setTextColor(Color.RED);
+            etEstado.setTypeface(null, Typeface.BOLD);
+        }
     }
 
     private Cliente ObtenerCliente(int id) {

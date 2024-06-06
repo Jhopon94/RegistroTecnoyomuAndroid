@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorYomu"
-    tools:context=".EditarEquipoIngresado">
+    tools:context=".EditarEquipoReparador"
+    android:background="@color/colorYomu">
 
     <TextView
-        android:id="@+id/etModeloEquipoEntreg"
+        android:id="@+id/etModeloEquipoReparador"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -20,10 +20,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNombreClienteEquipoEntreg" />
+        app:layout_constraintTop_toBottomOf="@+id/etNombreClienteEquipoReparador" />
 
     <TextView
-        android:id="@+id/etServicioEquipoEntreg"
+        android:id="@+id/etServicioEquipoReparador"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -35,40 +35,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etModeloEquipoEntreg" />
+        app:layout_constraintTop_toBottomOf="@+id/etModeloEquipoReparador" />
+
 
     <TextView
-        android:id="@+id/etPrecioEquipoEntreg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="Precio:"
-        android:textSize="28sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etServicioEquipoEntreg" />
-
-    <TextView
-        android:id="@+id/etSaldoPendienteEquipoEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="Saldo Pendiente:"
-        android:textColor="@color/black"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPrecioEquipoEntreg" />
-
-    <TextView
-        android:id="@+id/etEstadoEquipoEdit"
+        android:id="@+id/etEstadoEquipoReparador"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -80,48 +51,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSaldoPendienteEquipoEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/etServicioEquipoReparador" />
+
 
     <Button
-        android:id="@+id/btnMarcarEntregado"
+        android:id="@+id/btnMarcarReparado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/azulito"
-        android:onClick="MarcarEntregado"
-        android:text="Marcar como Entregado"
+        android:onClick="MarcarReparado"
+        android:text="Marcar como Reparado"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSaldoPendienteEquipoEdit" />
-
-    <Button
-        android:id="@+id/btnAbonar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/azulito"
-        android:onClick="MostrarDialogoAbono"
-        android:text="Abonar"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMarcarEntregado" />
+        app:layout_constraintTop_toBottomOf="@+id/etEstadoEquipoReparador" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="Cancelar"
@@ -131,10 +86,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAbonar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMarcarReparado" />
 
     <TextView
-        android:id="@+id/etNombreClienteEquipoEntreg"
+        android:id="@+id/etNombreClienteEquipoReparador"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -155,7 +110,7 @@
         android:layout_marginStart="3dp"
         android:layout_marginBottom="10dp"
         android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/etServicioEquipoEntreg"
+        app:layout_constraintBottom_toTopOf="@+id/etServicioEquipoReparador"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -166,29 +121,10 @@
         android:layout_marginStart="3dp"
         android:layout_marginBottom="10dp"
         android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/etPrecioEquipoEntreg"
+        app:layout_constraintBottom_toTopOf="@+id/etEstadoEquipoReparador"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:id="@+id/lineaTres"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/etSaldoPendienteEquipoEdit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:id="@+id/lineaCuatro"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSaldoPendienteEquipoEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

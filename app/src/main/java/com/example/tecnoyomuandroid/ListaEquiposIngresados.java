@@ -24,6 +24,9 @@ public class ListaEquiposIngresados extends AppCompatActivity {
     private LinearLayout contLista;
     private List<Equipo> listaEquipos;
     private ActivityResultLauncher resultadoActividad;
+    private boolean vieneDeReparacion;
+    private boolean listaVaciaAux;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +35,7 @@ public class ListaEquiposIngresados extends AppCompatActivity {
         // Configuramos el objeto que va a recibir el resultado de la actividad de edicion para poder cerrar la lista ///
         resultadoActividad = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if(result.getResultCode() == Activity.RESULT_OK){
+                    if (result.getResultCode() == Activity.RESULT_OK) {
                         recreate();
                     }
                 });
@@ -40,46 +43,72 @@ public class ListaEquiposIngresados extends AppCompatActivity {
 
         contLista = (LinearLayout) findViewById(R.id.contListaEqIng);
         contLista.setBackgroundColor(Color.WHITE);
+        vieneDeReparacion = this.getIntent().hasExtra("reparacion");
 
-        //Llenamos la lista de equipos al abrir el activity
-        if(!ListaEquIngSQLite().isEmpty()){
-            listaEquipos = ListaEquIngSQLite();
-            for(Equipo equipo : listaEquipos){
-                Button boton = new Button(this);
-                boton.setText(equipo.getModelo());
-                boton.setTextSize(20);
-                boton.setBackgroundColor(ContextCompat.getColor(this, R.color.azulito));
-                boton.setTextColor(Color.WHITE);
-                boton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AbrirDetalles(equipo);
-                    }
-                });
-                //Agregar linea
-                View linea = new View(this);
-                linea.setBackgroundColor(Color.BLACK);
-                linea.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 4));
-                contLista.addView(boton);
-                contLista.addView(linea);
+        if (vieneDeReparacion) {        //Llenamos la lista de equipos al abrir el activity
+            if (!ListaEquiposPorRepararSQLite().isEmpty()) {
+                listaEquipos = ListaEquiposPorRepararSQLite();
+                ListaEquipos(listaEquipos);
+            } else {
+                Toast.makeText(this, "Lista de equipos vacía o error", Toast.LENGTH_SHORT).show();
             }
-        }else {
-            Toast.makeText(this, "Lista de equipos vacía o error", Toast.LENGTH_SHORT).show();
+        } else {
+            //Llenamos la lista de equipos al abrir el activity
+            if (!ListaEquIngSQLite().isEmpty()) {
+                listaEquipos = ListaEquIngSQLite();
+                ListaEquipos(listaEquipos);
+            } else {
+                Toast.makeText(this, "Lista de equipos vacía o error", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+    }
+
+    private void ListaEquipos(List<Equipo> lista){
+        for (Equipo equipo : lista) {
+            Button boton = new Button(this);
+            boton.setText(equipo.getModelo());
+            boton.setTextSize(20);
+            boton.setBackgroundColor(ContextCompat.getColor(this, R.color.azulito));
+            boton.setTextColor(Color.WHITE);
+            boton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AbrirDetalles(equipo);
+                }
+            });
+            //Agregar linea
+            View linea = new View(this);
+            linea.setBackgroundColor(Color.BLACK);
+            linea.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 4));
+            contLista.addView(boton);
+            contLista.addView(linea);
         }
     }
 
-    private List<Equipo> ListaEquIngSQLite(){
+    private List<Equipo> ListaEquIngSQLite() {
         ConsultaSQLite consulta = new ConsultaSQLite(this);
         return consulta.ConsultarEquiposIngresadosSQLite();
     }
 
-    private void AbrirDetalles(Equipo equipo){
-        Intent intent = new Intent(this, EditarEquipoIngresado.class);
-        intent.putExtra("equipo", equipo);
-        resultadoActividad.launch(intent);
+    private List<Equipo> ListaEquiposPorRepararSQLite() {
+        return new ConsultaSQLite(this).ConsultarEquiposPorRepararSQLite();
     }
 
-    public void Cancelar(View vista){
+    private void AbrirDetalles(Equipo equipo) {
+        if(vieneDeReparacion){
+            Intent intent = new Intent(this, EditarEquipoReparador.class);
+            intent.putExtra("equipo", equipo);
+            resultadoActividad.launch(intent);
+        }else{
+            Intent intent = new Intent(this, EditarEquipoIngresado.class);
+            intent.putExtra("equipo", equipo);
+            resultadoActividad.launch(intent);
+        }
+    }
+
+    public void Cancelar(View vista) {
         finish();
     }
 }

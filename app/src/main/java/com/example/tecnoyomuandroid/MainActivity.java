@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
             case "contador":
                 AbrirContabilidad();
                 break;
+            case "reparador":
+                AbrirListaEqPorReparar();
+                break;
             default:
                 Toast.makeText(this, "Usuario Incorrecto", Toast.LENGTH_SHORT).show();
                 break;
@@ -46,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void AbrirContabilidad(){
         Intent actividad = new Intent(this, Contabilidad.class);
+        startActivity(actividad);
+    }
+
+    private void AbrirListaEqPorReparar(){
+        Intent actividad = new Intent(this, ListaEquiposIngresados.class);
+        actividad.putExtra("reparacion", true);
         startActivity(actividad);
     }
 }
