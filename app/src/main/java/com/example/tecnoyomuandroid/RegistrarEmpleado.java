@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.tecnoyomuandroid.Entidades.Cliente;
 import com.example.tecnoyomuandroid.Entidades.Empleado;
 
 public class RegistrarEmpleado extends AppCompatActivity {
@@ -40,20 +38,14 @@ public class RegistrarEmpleado extends AppCompatActivity {
         cajitaCelular = (EditText) findViewById(R.id.cajitaPrecioEquipoReg);
         cajitaDireccion = (EditText) findViewById(R.id.cajitaAbonoEquipoReg);
         cajitaCorreo = (EditText) findViewById(R.id.cajitaCorreoCliente);
-        btnRegistrar = (Button) findViewById(R.id.btnRegistrarEmpleado);
+        btnRegistrar = (Button) findViewById(R.id.btnRegistrarUsuario);
         empleadoDesdeLista = new Empleado();
 
         //Entrar en modo detalles si viene desde la lista
         vieneDeLista = this.getIntent().hasExtra("vieneDeLista");
         if (vieneDeLista) {
-            if (!this.getIntent().hasExtra("vieneDeLista")) {
-                Toast.makeText(this, "No se tiene información del empleado!", Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                empleadoDesdeLista = (Empleado) this.getIntent().getSerializableExtra("vieneDeLista");
-                modoDetalles();
-            }
-
+            empleadoDesdeLista = (Empleado) this.getIntent().getSerializableExtra("vieneDeLista");
+            modoDetalles();
         }
     }
 
@@ -115,6 +107,7 @@ public class RegistrarEmpleado extends AppCompatActivity {
         }
 
     }
+
     private void modoEditar() {
         cajitaNombre.setEnabled(true);
         cajitaNombre.setBackgroundColor(Color.WHITE);
@@ -153,8 +146,8 @@ public class RegistrarEmpleado extends AppCompatActivity {
         spCargo.setEnabled(false);
         //Sincronizar la opción del spinner con la que tiene el empleado obtenido del intent
         ArrayAdapter<String> adaptadorSP = (ArrayAdapter<String>) spCargo.getAdapter();
-        for(int i = 0; i < adaptadorSP.getCount(); i++){
-            if(adaptadorSP.getItem(i).equals(empleadoDesdeLista.getCargo())){
+        for (int i = 0; i < adaptadorSP.getCount(); i++) {
+            if (adaptadorSP.getItem(i).equals(empleadoDesdeLista.getCargo())) {
                 spCargo.setSelection(i);
                 break;
             }
@@ -169,7 +162,7 @@ public class RegistrarEmpleado extends AppCompatActivity {
         });
     }
 
-    private void EnviarResultadoALista(){
+    private void EnviarResultadoALista() {
         Intent resultadoIntent = new Intent();
         setResult(Activity.RESULT_OK, resultadoIntent);
         finish();

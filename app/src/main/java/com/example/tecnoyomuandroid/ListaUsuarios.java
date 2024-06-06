@@ -1,8 +1,12 @@
 package com.example.tecnoyomuandroid;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -20,6 +24,8 @@ public class ListaUsuarios extends AppCompatActivity {
 
     private LinearLayout contLista;
 
+    private ActivityResultLauncher<Intent> resultadoActividad;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +33,15 @@ public class ListaUsuarios extends AppCompatActivity {
 
         contLista = (LinearLayout) findViewById(R.id.contListaUsuarios);
         contLista.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Configuramos el objeto que va a recibir el resultado de la actividad de edicion para poder cerrar la lista ///
+        resultadoActividad = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if(result.getResultCode() == Activity.RESULT_OK){
+                        recreate();
+                    }
+                });
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //Llenamos la lista de usuarios al abrir el activity
         if(!ListaUsuariosSQLite().isEmpty()){
@@ -37,6 +52,12 @@ public class ListaUsuarios extends AppCompatActivity {
                 boton.setTextSize(20);
                 boton.setBackgroundColor(ContextCompat.getColor(this, R.color.azulito));
                 boton.setTextColor(Color.WHITE);
+                boton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AbrirDetalles(usuario);
+                    }
+                });
                 //Agregar linea
                 View linea = new View(this);
                 linea.setBackgroundColor(Color.BLACK);
@@ -52,6 +73,12 @@ public class ListaUsuarios extends AppCompatActivity {
     private List<Usuario> ListaUsuariosSQLite(){
         ConsultaSQLite consulta = new ConsultaSQLite(this);
         return consulta.ConsultarUsuariosSQLite();
+    }
+
+    private void AbrirDetalles(Usuario usuario){
+        Intent intent = new Intent(this, RegistrarUsuario.class);
+        intent.putExtra("vieneDeLista", usuario);
+        resultadoActividad.launch(intent);
     }
 
     public void Cancelar(View vista){

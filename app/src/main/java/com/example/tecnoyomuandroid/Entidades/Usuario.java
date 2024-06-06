@@ -1,6 +1,8 @@
 package com.example.tecnoyomuandroid.Entidades;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private int idEmpleado;
     private String nombreUsuario;
     private String clave;
