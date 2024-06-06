@@ -63,7 +63,7 @@
 
 
     <Button
-        android:id="@+id/btnRegistrarEquipo"
+        android:id="@+id/btnRegistrarEmpleado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
