@@ -18,8 +18,8 @@ public class CrearBDSQLite extends SQLiteOpenHelper {
         BaseDatos.execSQL("create table empleado(id INTEGER primary key unique not null, " +
                 "nombre varchar(100) not null, cargo varchar(20) not null, " +
                 "celular varchar(20) not null, direccion varchar(20) not null, " +
-                "correo varchar(20) not null, disponibleParaUsuario boolean not null default true, " +
-                "activo boolean not null default true, " +
+                "correo varchar(20) not null, disponibleParaUsuario boolean not null default 1, " +
+                "activo boolean not null default 1, " +
                 "fechaRegistro timestamp not null default current_timestamp)");
 
         BaseDatos.execSQL("create table usuario(idEmpleado INTEGER primary key unique not null, " +
@@ -32,10 +32,10 @@ public class CrearBDSQLite extends SQLiteOpenHelper {
 
         BaseDatos.execSQL("create table equipo(id INTEGER primary key autoincrement unique not null, idCliente INTEGER not null, modelo varchar(150) not null, " +
                 "servicio varchar(150) not null, precio int not null, saldoPendiente int not null, estado varchar(10) not null default 'ingresado', " +
-                "fechaIngreso timestamp not null default current_timestamp, entregado boolean not null default false)");
+                "fechaIngreso timestamp not null default current_timestamp, entregado boolean not null default 0)");
 
         BaseDatos.execSQL("INSERT INTO empleado values(123456789, 'Administrador Default', 'Administrador', '12345', '12345', " +
-                "'12345', false, true, current_timestamp)");
+                "'12345', 0, 1, current_timestamp)");
 
         BaseDatos.execSQL("INSERT INTO usuario values(123456789, 'Administrador', '1234', 'Administrador', current_timestamp)");
     }

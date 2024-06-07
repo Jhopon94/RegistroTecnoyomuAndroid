@@ -63,7 +63,7 @@ public class ConsultaSQLite {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
             //Obtenemos los datos de la base de datos
-            Cursor empleados = baseDatos.rawQuery("select * from empleado where disponibleparausuario=true", null);
+            Cursor empleados = baseDatos.rawQuery("select * from empleado where disponibleparausuario=1", null);
             //Verificar que la consulta tenga datos
             if (empleados.moveToFirst()) {
                 //Obtenemos todos los datos de la tabla
@@ -99,7 +99,7 @@ public class ConsultaSQLite {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
             //Obtenemos los datos de la base de datos
-            Cursor empleados = baseDatos.rawQuery("select * from empleado where disponibleparausuario=false", null);
+            Cursor empleados = baseDatos.rawQuery("select * from empleado where disponibleparausuario=0", null);
             //Verificar que la consulta tenga datos
             if (empleados.moveToFirst()) {
                 //Obtenemos todos los datos de la tabla
@@ -200,7 +200,7 @@ public class ConsultaSQLite {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
             //Obtenemos los datos de la base de datos
-            Cursor equipos = baseDatos.rawQuery("select * from equipo where entregado=false", null);
+            Cursor equipos = baseDatos.rawQuery("select * from equipo where entregado=0", null);
             //Verificar que la consulta tenga datos
             if (equipos.moveToFirst()) {
                 //Obtenemos todos los datos de la tabla
@@ -235,7 +235,7 @@ public class ConsultaSQLite {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
             //Obtenemos los datos de la base de datos
-            Cursor equipos = baseDatos.rawQuery("select * from equipo where entregado=true", null);
+            Cursor equipos = baseDatos.rawQuery("select * from equipo where entregado=1", null);
             //Verificar que la consulta tenga datos
             if (equipos.moveToFirst()) {
                 //Obtenemos todos los datos de la tabla
@@ -270,7 +270,7 @@ public class ConsultaSQLite {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
             //Obtenemos los datos de la base de datos
-            Cursor equipos = baseDatos.rawQuery("select * from equipo where entregado=true AND idCliente=" + idCliente, null);
+            Cursor equipos = baseDatos.rawQuery("select * from equipo where entregado=1 AND idCliente=" + idCliente, null);
             //Verificar que la consulta tenga datos
             if (equipos.moveToFirst()) {
                 baseDatos.close();
