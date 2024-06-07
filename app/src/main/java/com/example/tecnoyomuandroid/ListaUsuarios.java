@@ -65,8 +65,6 @@ public class ListaUsuarios extends AppCompatActivity {
                 contLista.addView(boton);
                 contLista.addView(linea);
             }
-        }else {
-            Toast.makeText(this, "Lista de usuarios vacía o error", Toast.LENGTH_SHORT).show();
         }
     }
 

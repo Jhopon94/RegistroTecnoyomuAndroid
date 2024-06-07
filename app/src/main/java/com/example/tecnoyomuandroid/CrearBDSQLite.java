@@ -33,6 +33,11 @@ public class CrearBDSQLite extends SQLiteOpenHelper {
         BaseDatos.execSQL("create table equipo(id INTEGER primary key autoincrement unique not null, idCliente INTEGER not null, modelo varchar(150) not null, " +
                 "servicio varchar(150) not null, precio int not null, saldoPendiente int not null, estado varchar(10) not null default 'ingresado', " +
                 "fechaIngreso timestamp not null default current_timestamp, entregado boolean not null default false)");
+
+        BaseDatos.execSQL("INSERT INTO empleado values(123456789, 'Adminstrador Default', 'Administrador', '12345', '12345', " +
+                "'12345', true, true, current_timestamp)");
+
+        BaseDatos.execSQL("INSERT INTO usuario values(123456789, 'Administrador', '1234', 'Administrador', current_timestamp)");
     }
 
     @Override

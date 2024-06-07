@@ -153,8 +153,11 @@ public class RegistrarUsuario extends AppCompatActivity {
     }
 
     private void ModoEdicion(){
-        cajitaNombreusuario.setEnabled(true);
-        cajitaNombreusuario.setBackgroundColor(Color.WHITE);
+        //Variable para indicar que se obtuvo el usuario Administrador por defecto
+        boolean isAdminPorDefecto = usuarioDesdeLista.getNombreUsuario().equals("Administrador");
+        ////////////////////////////////////////////////////////////////////////////////
+        if(!isAdminPorDefecto)cajitaNombreusuario.setEnabled(true);
+        if(!isAdminPorDefecto)cajitaNombreusuario.setBackgroundColor(Color.WHITE);
         cajitaClave.setEnabled(true);
         cajitaClave.setBackgroundColor(Color.WHITE);
         btnRegistrar.setText("Registrar");
@@ -164,8 +167,11 @@ public class RegistrarUsuario extends AppCompatActivity {
                 Editar();
             }
         });
-        btnEliminarUsuario.setEnabled(true);
-        btnEliminarUsuario.setBackgroundColor(rojitoOscuro);
+        //Para que no se pueda eliminar el usuario por defecto, solo editarlo
+        if(!isAdminPorDefecto){
+            btnEliminarUsuario.setEnabled(true);
+            btnEliminarUsuario.setBackgroundColor(rojitoOscuro);
+        }
     }
 
     private void Editar(){

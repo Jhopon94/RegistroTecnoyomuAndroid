@@ -47,26 +47,27 @@ public class ListaEmpleados extends AppCompatActivity {
         if(!ListaEmpleadosSQLite().isEmpty()){
             List<Empleado> listaEmpleados = ListaEmpleadosSQLite();
             for(Empleado empleado : listaEmpleados){
-                Button boton = new Button(this);
-                boton.setText(empleado.getNombre());
-                boton.setTextSize(20);
-                boton.setBackgroundColor(ContextCompat.getColor(this, R.color.azulito));
-                boton.setTextColor(Color.WHITE);
-                boton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AbrirDetalles(empleado);
-                    }
-                });
-                //Agregar linea
-                View linea = new View(this);
-                linea.setBackgroundColor(Color.BLACK);
-                linea.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 4));
-                contLista.addView(boton);
-                contLista.addView(linea);
+                //Para excluir el administrador por defecto y no perder acceso a la app
+                if(empleado.getId() != 123456789){
+                    Button boton = new Button(this);
+                    boton.setText(empleado.getNombre());
+                    boton.setTextSize(20);
+                    boton.setBackgroundColor(ContextCompat.getColor(this, R.color.azulito));
+                    boton.setTextColor(Color.WHITE);
+                    boton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AbrirDetalles(empleado);
+                        }
+                    });
+                    //Agregar linea
+                    View linea = new View(this);
+                    linea.setBackgroundColor(Color.BLACK);
+                    linea.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 4));
+                    contLista.addView(boton);
+                    contLista.addView(linea);
+                }
             }
-        }else {
-            Toast.makeText(this, "Lista de empleados vacía o error", Toast.LENGTH_SHORT).show();
         }
     }
 

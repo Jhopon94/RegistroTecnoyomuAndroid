@@ -62,8 +62,6 @@ public class ListaEquiposEntregados extends AppCompatActivity {
                 contLista.addView(boton);
                 contLista.addView(linea);
             }
-        }else {
-            Toast.makeText(this, "Lista de equipo vacía o error", Toast.LENGTH_SHORT).show();
         }
     }
 

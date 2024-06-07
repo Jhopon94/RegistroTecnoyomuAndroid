@@ -51,16 +51,12 @@ public class ListaEquiposIngresados extends AppCompatActivity {
             if (!ListaEquiposPorRepararSQLite().isEmpty()) {
                 listaEquipos = ListaEquiposPorRepararSQLite();
                 ListaEquipos(listaEquipos);
-            } else {
-                Toast.makeText(this, "Lista de equipos vacía o error", Toast.LENGTH_SHORT).show();
             }
         } else {
             //Llenamos la lista de equipos al abrir el activity
             if (!ListaEquIngSQLite().isEmpty()) {
                 listaEquipos = ListaEquIngSQLite();
                 ListaEquipos(listaEquipos);
-            } else {
-                Toast.makeText(this, "Lista de equipos vacía o error", Toast.LENGTH_SHORT).show();
             }
         }
 
