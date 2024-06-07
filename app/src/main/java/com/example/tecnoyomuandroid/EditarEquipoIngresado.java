@@ -157,6 +157,11 @@ public class EditarEquipoIngresado extends AppCompatActivity {
         builder.show();
     }
 
+    public void EliminarEquipo(View vista){
+        new EliminacionSQLite(this).EliminarEquipoIngresado(equipoRecibido.getId());
+        FinalizarConResultado();
+    }
+
 
     public void Cancelar(View vista) {
         finish();
