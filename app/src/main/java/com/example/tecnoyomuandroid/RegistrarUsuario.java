@@ -92,10 +92,13 @@ public class RegistrarUsuario extends AppCompatActivity {
     }
 
     public void Registrar(View vista){
-        String nombreSeleccionado = spEmpleados.getSelectedItem().toString();
-        String rol = "";
-        //Obtener id y rol del nombre seleccionado
-        int idEmpleado = 0;
+        String nombreUsuario = cajitaNombreusuario.getText().toString();
+        if(!NombreUsuarioProhibido(nombreUsuario)){
+            String clave = cajitaClave.getText().toString();
+            String nombreSeleccionado = spEmpleados.getSelectedItem().toString().trim();
+            String rol = "";
+            //Obtener id y rol del nombre seleccionado
+            int idEmpleado = 0;
             for(Empleado empleado : listaEmpleadosParaUsuario){
                 if(empleado.getNombre().equals(nombreSeleccionado)){
                     idEmpleado = empleado.getId();
@@ -103,26 +106,27 @@ public class RegistrarUsuario extends AppCompatActivity {
                     break;
                 }
             }
-            String nombreUsuario = cajitaNombreusuario.getText().toString();
-            String clave = cajitaClave.getText().toString();
 
-        if(nombreUsuario.isEmpty() || clave.isEmpty()){
-            Toast.makeText(this, "Deben llenarse todos los campos", Toast.LENGTH_SHORT).show();
-        }else{
-            if(ContieneEspacios(nombreUsuario) || ContieneEspacios(clave)){
-                Toast.makeText(this, "no debe haber espacios en contraseña o nombre de usuario", Toast.LENGTH_LONG).show();
+            if(nombreUsuario.isEmpty() || clave.isEmpty()){
+                Toast.makeText(this, "Deben llenarse todos los campos", Toast.LENGTH_SHORT).show();
             }else{
-                //Procedemos a registrar una vez pasadas las verificaciones
-                Usuario usuario = new Usuario();
-                usuario.setIdEmpleado(idEmpleado);
-                usuario.setNombreUsuario(nombreUsuario);
-                usuario.setRol(rol);
-                usuario.setClave(clave);
-                /////////////////////////////////
-                RegistroSQLite registro = new RegistroSQLite(this);
-                registro.RegistrarUsuarioSQLite(usuario);
-                finish();
+                if(ContieneEspacios(nombreUsuario) || ContieneEspacios(clave)){
+                    Toast.makeText(this, "no debe haber espacios en contraseña o nombre de usuario", Toast.LENGTH_LONG).show();
+                }else{
+                    //Procedemos a registrar una vez pasadas las verificaciones
+                    Usuario usuario = new Usuario();
+                    usuario.setIdEmpleado(idEmpleado);
+                    usuario.setNombreUsuario(nombreUsuario);
+                    usuario.setRol(rol);
+                    usuario.setClave(clave);
+                    /////////////////////////////////
+                    RegistroSQLite registro = new RegistroSQLite(this);
+                    registro.RegistrarUsuarioSQLite(usuario);
+                    finish();
+                }
             }
+        }else{
+            Toast.makeText(this, "No puedes usar ese nombre de usuario!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -176,25 +180,28 @@ public class RegistrarUsuario extends AppCompatActivity {
 
     private void Editar(){
         int idEmpleado = usuarioDesdeLista.getIdEmpleado();
-        String nombreUsuario = cajitaNombreusuario.getText().toString();
-        String clave = cajitaClave.getText().toString();
-
-        if(nombreUsuario.isEmpty() || clave.isEmpty()){
-            Toast.makeText(this, "Deben llenarse todos los campos", Toast.LENGTH_SHORT).show();
-        }else{
-            if(ContieneEspacios(nombreUsuario) || ContieneEspacios(clave)){
-                Toast.makeText(this, "no debe haber espacios en contraseña o nombre de usuario", Toast.LENGTH_LONG).show();
+        String nombreUsuario = cajitaNombreusuario.getText().toString().trim();
+        String clave = cajitaClave.getText().toString().trim();
+        if(!NombreUsuarioProhibido(nombreUsuario) || idEmpleado == 123456789){
+            if(nombreUsuario.isEmpty() || clave.isEmpty()){
+                Toast.makeText(this, "Deben llenarse todos los campos", Toast.LENGTH_SHORT).show();
             }else{
-                //Procedemos a registrar una vez pasadas las verificaciones
-                Usuario usuario = new Usuario();
-                usuario.setIdEmpleado(idEmpleado);
-                usuario.setNombreUsuario(nombreUsuario);
-                usuario.setClave(clave);
-                /////////////////////////////////
-                EdicionSQLite edicion = new EdicionSQLite(this);
-                edicion.EditarUsuarioSQLite(usuario);
-                FinalizarConResultado();
+                if(ContieneEspacios(nombreUsuario) || ContieneEspacios(clave)){
+                    Toast.makeText(this, "no debe haber espacios en contraseña o nombre de usuario", Toast.LENGTH_LONG).show();
+                }else{
+                    //Procedemos a registrar una vez pasadas las verificaciones
+                    Usuario usuario = new Usuario();
+                    usuario.setIdEmpleado(idEmpleado);
+                    usuario.setNombreUsuario(nombreUsuario);
+                    usuario.setClave(clave);
+                    /////////////////////////////////
+                    EdicionSQLite edicion = new EdicionSQLite(this);
+                    edicion.EditarUsuarioSQLite(usuario);
+                    FinalizarConResultado();
+                }
             }
+        }else{
+            Toast.makeText(this, "No puedes usar ese nombre de usuario!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -211,6 +218,10 @@ public class RegistrarUsuario extends AppCompatActivity {
     public void EliminarUsuario(View vista){
         new EliminacionSQLite(this).EliminarUsuario(usuarioDesdeLista.getIdEmpleado());
         FinalizarConResultado();
+    }
+
+    private boolean NombreUsuarioProhibido(String nombre){
+        return nombre.equals("Administrador") || nombre.equals("administrador") || nombre.equals("admin") || nombre.equals("Admin");
     }
 
     private boolean ContieneEspacios(String texto){

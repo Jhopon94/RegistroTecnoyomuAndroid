@@ -48,7 +48,6 @@ public class ListaEmpleados extends AppCompatActivity {
             List<Empleado> listaEmpleados = ListaEmpleadosSQLite();
             for(Empleado empleado : listaEmpleados){
                 //Para excluir el administrador por defecto y no perder acceso a la app
-                if(empleado.getId() != 123456789){
                     Button boton = new Button(this);
                     boton.setText(empleado.getNombre());
                     boton.setTextSize(20);
@@ -66,7 +65,7 @@ public class ListaEmpleados extends AppCompatActivity {
                     linea.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 4));
                     contLista.addView(boton);
                     contLista.addView(linea);
-                }
+
             }
         }
     }

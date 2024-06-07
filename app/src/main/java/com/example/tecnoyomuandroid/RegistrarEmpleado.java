@@ -59,12 +59,12 @@ public class RegistrarEmpleado extends AppCompatActivity {
 
     public void Registrar(View vista) {
         //Capturamos los textos de las cajitas
-        String nombre = cajitaNombre.getText().toString();
-        String cedula = cajitaCedula.getText().toString(); //Convertir a numero mas adelante
-        String cargo = spCargo.getSelectedItem().toString();
-        String celular = cajitaCelular.getText().toString();
-        String direccion = cajitaDireccion.getText().toString();
-        String correo = cajitaCorreo.getText().toString();
+        String nombre = cajitaNombre.getText().toString().trim();
+        String cedula = cajitaCedula.getText().toString().trim(); //Convertir a numero mas adelante
+        String cargo = spCargo.getSelectedItem().toString().trim();
+        String celular = cajitaCelular.getText().toString().trim();
+        String direccion = cajitaDireccion.getText().toString().trim();
+        String correo = cajitaCorreo.getText().toString().trim();
 
         if (nombre.isEmpty() || cedula.isEmpty() || cargo.isEmpty() || celular.isEmpty() || direccion.isEmpty() || correo.isEmpty()) {
             Toast.makeText(this, "Todos los campos deben estar llenos!", Toast.LENGTH_SHORT).show();
@@ -89,12 +89,12 @@ public class RegistrarEmpleado extends AppCompatActivity {
 
     public void Editar(View vista) {
         //Capturamos los textos de las cajitas
-        String nombre = cajitaNombre.getText().toString();
-        String cedula = cajitaCedula.getText().toString(); //Convertir a numero mas adelante
-        String cargo = spCargo.getSelectedItem().toString();
-        String celular = cajitaCelular.getText().toString();
-        String direccion = cajitaDireccion.getText().toString();
-        String correo = cajitaCorreo.getText().toString();
+        String nombre = cajitaNombre.getText().toString().trim();
+        String cedula = cajitaCedula.getText().toString().trim(); //Convertir a numero mas adelante
+        String cargo = spCargo.getSelectedItem().toString().trim();
+        String celular = cajitaCelular.getText().toString().trim();
+        String direccion = cajitaDireccion.getText().toString().trim();
+        String correo = cajitaCorreo.getText().toString().trim();
 
         if (nombre.isEmpty() || cedula.isEmpty() || cargo.isEmpty() || celular.isEmpty() || direccion.isEmpty() || correo.isEmpty()) {
             Toast.makeText(this, "Todos los campos deben estar llenos!", Toast.LENGTH_SHORT).show();

@@ -51,10 +51,10 @@ public class RegistrarEquipo extends AppCompatActivity {
 
     public void Registrar(View vista) {
         if (!camposVacios(listaCajitas)) {
-            String modelo = cajitaModelo.getText().toString();
-            String servicio = cajitaServicio.getText().toString();
-            int precio = Integer.parseInt(cajitaPrecio.getText().toString());
-            int saldoPendiente = precio - Integer.parseInt(cajitaAbono.getText().toString());
+            String modelo = cajitaModelo.getText().toString().trim();
+            String servicio = cajitaServicio.getText().toString().trim();
+            int precio = Integer.parseInt(cajitaPrecio.getText().toString().trim());
+            int saldoPendiente = precio - Integer.parseInt(cajitaAbono.getText().toString().trim());
             boolean abonoValido = saldoPendiente >= 0;
             if(abonoValido){
                 //Acomodar el objeto Equipo

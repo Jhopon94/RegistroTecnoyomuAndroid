@@ -42,7 +42,7 @@ public class ConsultaSQLite {
                     empleado.setDisponibleParaUsuario(empleados.getInt(empleados.getColumnIndexOrThrow("disponibleParaUsuario")) > 0);
                     empleado.setActivo(empleados.getInt(empleados.getColumnIndexOrThrow("activo")) > 0);
                     //Agregar el empleado a la lista
-                    listaAuxiliar.add(empleado);
+                    if(empleado.getId() != 123456789)listaAuxiliar.add(empleado);
                 } while (empleados.moveToNext());
                 baseDatos.close();
                 return listaAuxiliar;
@@ -78,7 +78,7 @@ public class ConsultaSQLite {
                     empleado.setDisponibleParaUsuario(empleados.getInt(empleados.getColumnIndexOrThrow("disponibleParaUsuario")) > 0);
                     empleado.setActivo(empleados.getInt(empleados.getColumnIndexOrThrow("activo")) > 0);
                     //Agregar el empleado a la lista
-                    listaAuxiliar.add(empleado);
+                    if(empleado.getId() != 123456789)listaAuxiliar.add(empleado);
                 } while (empleados.moveToNext());
                 baseDatos.close();
                 return listaAuxiliar;
