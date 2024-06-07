@@ -12,7 +12,7 @@ public class EliminacionSQLite {
         this.contexto = contexto;
     }
 
-    public void EliminarEmpleado(int id){
+    public void EliminarEmpleado(int id) {
         try {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(contexto, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
@@ -25,7 +25,8 @@ public class EliminacionSQLite {
             throw new RuntimeException(e);
         }
     }
-    public void EliminarUsuario(int id){
+
+    public void EliminarUsuario(int id) {
         try {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(contexto, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
@@ -38,19 +39,22 @@ public class EliminacionSQLite {
             throw new RuntimeException(e);
         }
     }
-    public void EliminarCliente(int id){
+
+    public void EliminarCliente(int id) {
         try {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(contexto, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
             baseDatos.delete("cliente", "id=" + id, null);
-            baseDatos.close();
             Toast.makeText(contexto, "Cliente eliminado satisfactoriamente!", Toast.LENGTH_SHORT).show();
+            EliminarEquiposIngresadosSegunCliente(id, baseDatos);
+            baseDatos.close();
         } catch (Exception e) {
             Toast.makeText(contexto, "Error al eliminar el cliente!", Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
         }
     }
-    public void EliminarEquipoIngresado(int id){
+
+    public void EliminarEquipoIngresado(int id) {
         try {
             CrearBDSQLite manejadorBD = new CrearBDSQLite(contexto, "RegistroTecnoyomu", null, 1);
             SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
@@ -63,7 +67,13 @@ public class EliminacionSQLite {
         }
     }
 
-    private void EmpleadoDisponibleParaUsaurio(int id, SQLiteDatabase baseDatos){
+    public void EliminarEquiposIngresadosSegunCliente(int idCliente, SQLiteDatabase baseDatos) {
+        baseDatos.delete("equipo", "idCliente=" + idCliente, null);
+        baseDatos.close();
+        Toast.makeText(contexto, "Equipos eliminados satisfactoriamente!", Toast.LENGTH_SHORT).show();
+    }
+
+    private void EmpleadoDisponibleParaUsaurio(int id, SQLiteDatabase baseDatos) {
         ContentValues actualizacion = new ContentValues();
         actualizacion.put("disponibleParaUsuario", true);
         String selecc = "id = ?";

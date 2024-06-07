@@ -264,6 +264,27 @@ public class ConsultaSQLite {
         }
     }
 
+    public boolean ClienteTieneServiciosEntregadosSQLite(int idCliente) {
+        try {
+            List<Equipo> listaAuxiliar = new ArrayList<>();
+            CrearBDSQLite manejadorBD = new CrearBDSQLite(context, "RegistroTecnoyomu", null, 1);
+            SQLiteDatabase baseDatos = manejadorBD.getWritableDatabase();
+            //Obtenemos los datos de la base de datos
+            Cursor equipos = baseDatos.rawQuery("select * from equipo where entregado=true AND idCliente=" + idCliente, null);
+            //Verificar que la consulta tenga datos
+            if (equipos.moveToFirst()) {
+                baseDatos.close();
+                return true;
+            } else {
+                baseDatos.close();
+                return false;
+            }
+        } catch (Exception e) {
+            Toast.makeText(context, "Error al consultar equipos en base de datos!", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Equipo> ConsultarEquiposPorRepararSQLite() {
         try {
             List<Equipo> listaAuxiliar = new ArrayList<>();

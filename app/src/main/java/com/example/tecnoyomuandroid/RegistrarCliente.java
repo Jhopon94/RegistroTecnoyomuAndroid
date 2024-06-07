@@ -168,6 +168,15 @@ public class RegistrarCliente extends AppCompatActivity {
         finish();
     }
 
+    public void EliminarCliente(View vista){
+        if(new ConsultaSQLite(this).ClienteTieneServiciosEntregadosSQLite(clienteRecibido.getId())){
+            Toast.makeText(this, "No se puede eliminar el cliente porque ya se le han prestado servicios!", Toast.LENGTH_SHORT).show();
+        }else{
+            new EliminacionSQLite(this).EliminarCliente(clienteRecibido.getId());
+            FinalizarConResultado();
+        }
+    }
+
     public void Cancelar(View vista) {
         finish();
     }
