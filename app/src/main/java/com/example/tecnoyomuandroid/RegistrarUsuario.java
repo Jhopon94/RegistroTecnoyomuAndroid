@@ -202,6 +202,11 @@ public class RegistrarUsuario extends AppCompatActivity {
         finish();
     }
 
+    public void EliminarUsuario(View vista){
+        new EliminacionSQLite(this).EliminarUsuario(usuarioDesdeLista.getIdEmpleado());
+        FinalizarConResultado();
+    }
+
     private boolean ContieneEspacios(String texto){
         boolean bandera = false;
         String[] listaCaracteres = texto.split("");

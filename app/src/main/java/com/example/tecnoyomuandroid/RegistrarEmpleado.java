@@ -182,6 +182,11 @@ public class RegistrarEmpleado extends AppCompatActivity {
         finish();
     }
 
+    public void EliminarEmpleado(View vista){
+        new EliminacionSQLite(this).EliminarEmpleado(empleadoDesdeLista.getId());
+        EnviarResultadoALista();
+    }
+
     public void Cancelar(View vista) {
         finish();
     }
