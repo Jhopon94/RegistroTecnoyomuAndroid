@@ -108,21 +108,36 @@
         android:id="@+id/btnRegistrarCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/azulito"
         android:onClick="Registrar"
         android:text="Registrar"
         android:textColor="@color/white"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEliminarCliente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnEliminarCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/rojitoOscuro"
+        android:text="Eliminar"
+        android:textColor="@color/white"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="Cancelar"
         android:text="Cancelar"

@@ -27,6 +27,7 @@ public class ListaClientes extends AppCompatActivity {
     private boolean registrandoEquipo;
     private List<Cliente> listaClientes;
     private ActivityResultLauncher resultadoActividad;
+    private boolean esAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class ListaClientes extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         registrandoEquipo = this.getIntent().hasExtra("registrandoEquipo");
+        esAdmin = this.getIntent().hasExtra("esAdmin");
 
         contLista = (LinearLayout) findViewById(R.id.contListaClientes);
         contLista.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
@@ -103,6 +105,7 @@ public class ListaClientes extends AppCompatActivity {
     private void AbrirDetalles(Cliente cliente){
         Intent intent = new Intent(this, RegistrarCliente.class);
         intent.putExtra("vieneDeLista", cliente);
+        if(esAdmin) intent.putExtra("esAdmin", true);
         resultadoActividad.launch(intent);
     }
 

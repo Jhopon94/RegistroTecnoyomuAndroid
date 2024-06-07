@@ -25,6 +25,8 @@ public class RegistrarUsuario extends AppCompatActivity {
     private EditText cajitaNombreusuario;
     private EditText cajitaClave;
     private Button btnRegistrar;
+    private Button btnEliminarUsuario;
+    private int rojitoOscuro;
     private List<Empleado> listaEmpleadosParaUsuario;
     private Empleado empleadoDeusuario;
 
@@ -40,6 +42,10 @@ public class RegistrarUsuario extends AppCompatActivity {
         cajitaNombreusuario = (EditText) findViewById(R.id.cajitaNombreUsuario);
         cajitaClave = (EditText) findViewById(R.id.cajitaClaveUsuario);
         btnRegistrar = (Button) findViewById(R.id.btnRegistrarCliente);
+        btnEliminarUsuario = (Button) findViewById(R.id.btnEliminarUsuario);
+        rojitoOscuro = btnEliminarUsuario.getSolidColor();
+        btnEliminarUsuario.setVisibility(View.GONE);
+
         listaEmpleadosParaUsuario = new ArrayList<>(); //Para poder usar el objeto elegido segun nombre en el spinner
         usuarioDesdeLista = new Usuario();
 
@@ -141,6 +147,9 @@ public class RegistrarUsuario extends AppCompatActivity {
                 ModoEdicion();
             }
         });
+        btnEliminarUsuario.setVisibility(View.VISIBLE);
+        btnEliminarUsuario.setEnabled(false);
+        btnEliminarUsuario.setBackgroundColor(Color.LTGRAY);
     }
 
     private void ModoEdicion(){
@@ -155,6 +164,8 @@ public class RegistrarUsuario extends AppCompatActivity {
                 Editar();
             }
         });
+        btnEliminarUsuario.setEnabled(true);
+        btnEliminarUsuario.setBackgroundColor(rojitoOscuro);
     }
 
     private void Editar(){

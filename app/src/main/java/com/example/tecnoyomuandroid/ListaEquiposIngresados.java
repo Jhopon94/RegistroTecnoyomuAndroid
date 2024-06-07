@@ -26,6 +26,7 @@ public class ListaEquiposIngresados extends AppCompatActivity {
     private ActivityResultLauncher resultadoActividad;
     private boolean vieneDeReparacion;
     private boolean listaVaciaAux;
+    private boolean esAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class ListaEquiposIngresados extends AppCompatActivity {
         contLista = (LinearLayout) findViewById(R.id.contListaEqIng);
         contLista.setBackgroundColor(Color.WHITE);
         vieneDeReparacion = this.getIntent().hasExtra("reparacion");
+        esAdmin = this.getIntent().hasExtra("esAdmin");
 
         if (vieneDeReparacion) {        //Llenamos la lista de equipos al abrir el activity
             if (!ListaEquiposPorRepararSQLite().isEmpty()) {
@@ -104,6 +106,7 @@ public class ListaEquiposIngresados extends AppCompatActivity {
         }else{
             Intent intent = new Intent(this, EditarEquipoIngresado.class);
             intent.putExtra("equipo", equipo);
+            if(esAdmin) intent.putExtra("esAdmin", true);
             resultadoActividad.launch(intent);
         }
     }

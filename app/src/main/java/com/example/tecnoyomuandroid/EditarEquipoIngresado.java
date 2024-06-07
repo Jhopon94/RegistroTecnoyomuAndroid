@@ -31,6 +31,9 @@ public class EditarEquipoIngresado extends AppCompatActivity {
     private Button btnAbonar;
     private Button btnMarcarEntregado;
     private Equipo equipoRecibido;
+    private Button btnEliminarEquipo;
+    private boolean esAdmin;
+    private int rojitoOscuro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,11 @@ public class EditarEquipoIngresado extends AppCompatActivity {
         etEstado = (TextView) findViewById(R.id.etEstadoEquipoEdit);
         btnAbonar = (Button) findViewById(R.id.btnAbonar);
         btnMarcarEntregado = (Button) findViewById(R.id.btnMarcarEntregado);
+        btnEliminarEquipo = (Button) findViewById(R.id.btnEliminarEquipoIngresado);
+        rojitoOscuro = btnEliminarEquipo.getSolidColor();
+
+        esAdmin = this.getIntent().hasExtra("esAdmin");
+
         equipoRecibido = (Equipo) this.getIntent().getSerializableExtra("equipo");
         if (equipoRecibido != null) {
             if (equipoRecibido.getSaldoPendiente() == 0) {
@@ -88,6 +96,7 @@ public class EditarEquipoIngresado extends AppCompatActivity {
             etEstado.setTextColor(Color.RED);
             etEstado.setTypeface(null, Typeface.BOLD);
         }
+        if(!esAdmin)btnEliminarEquipo.setVisibility(View.GONE);
     }
 
     private Cliente ObtenerCliente(int id) {

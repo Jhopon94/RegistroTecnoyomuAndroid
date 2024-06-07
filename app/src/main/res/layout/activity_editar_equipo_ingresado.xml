@@ -87,51 +87,67 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/azulito"
         android:onClick="MarcarEntregado"
-        android:text="Marcar como Entregado"
+        android:text="Entregar"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAbonar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSaldoPendienteEquipoEdit" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnAbonar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/azulito"
         android:onClick="MostrarDialogoAbono"
         android:text="Abonar"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEliminarEquipoIngresado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMarcarEntregado" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnEliminarEquipoIngresado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/rojitoOscuro"
+        android:text="Eliminar"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="Cancelar"
         android:text="Cancelar"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAbonar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/etNombreClienteEquipoEntreg"

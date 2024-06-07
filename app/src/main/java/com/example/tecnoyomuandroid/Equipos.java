@@ -8,10 +8,13 @@ import android.view.View;
 
 public class Equipos extends AppCompatActivity {
 
+    private boolean esAdmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equipos);
+
+        esAdmin = this.getIntent().hasExtra("esAdmin");
     }
 
     public void AbrirListaClientesEquipos(View vista){
@@ -22,6 +25,7 @@ public class Equipos extends AppCompatActivity {
 
     public void AbrirListaEquiposIng(View vista){
         Intent intent = new Intent(this, ListaEquiposIngresados.class);
+        if(esAdmin)intent.putExtra("esAdmin", true);
         startActivity(intent);
     }
 

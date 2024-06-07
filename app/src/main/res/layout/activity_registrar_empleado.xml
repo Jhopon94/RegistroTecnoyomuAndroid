@@ -59,8 +59,7 @@
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaServicioEquipoReg"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/cajitaServicioEquipoReg" />
 
     <EditText
         android:id="@+id/cajitaPrecioEquipoReg"
@@ -123,7 +122,7 @@
         android:id="@+id/btnRegistrarCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/azulito"
         android:onClick="Registrar"
         android:text="Registrar"
@@ -134,18 +133,31 @@
         app:layout_constraintTop_toBottomOf="@+id/cajitaCorreoCliente" />
 
     <Button
+        android:id="@+id/btnEliminarEmpleado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/rojitoOscuro"
+        android:text="Eliminar"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarCliente" />
+
+    <Button
         android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/rojitoOscuro"
         android:onClick="Cancelar"
         android:text="Cancelar"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarCliente"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/btnEliminarEmpleado" />
 </androidx.constraintlayout.widget.ConstraintLayout>

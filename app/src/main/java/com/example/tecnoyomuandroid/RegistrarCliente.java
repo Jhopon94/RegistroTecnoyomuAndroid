@@ -21,7 +21,10 @@ public class RegistrarCliente extends AppCompatActivity {
     private EditText cajitaDireccion;
     private EditText cajitaCorreo;
     private Button btnRegistrar;
+    private Button btnEliminarCliente;
+    private int rojitoOscuro;
     private boolean vieneDesdeLista;
+    private boolean esAdmin;
     private Cliente clienteRecibido;
 
     @Override
@@ -35,9 +38,13 @@ public class RegistrarCliente extends AppCompatActivity {
         cajitaDireccion = (EditText) findViewById(R.id.cajitaAbonoEquipoReg);
         cajitaCorreo = (EditText) findViewById(R.id.cajitaCorreoCliente);
         btnRegistrar = (Button) findViewById(R.id.btnRegistrarCliente);
-        clienteRecibido = new Cliente();
+        btnEliminarCliente = (Button) findViewById(R.id.btnEliminarCliente);
+        rojitoOscuro = btnEliminarCliente.getSolidColor();
+        btnEliminarCliente.setVisibility(View.GONE);
 
+        clienteRecibido = new Cliente();
         vieneDesdeLista = this.getIntent().hasExtra("vieneDeLista");
+        esAdmin = this.getIntent().hasExtra("esAdmin");
         if (vieneDesdeLista) {
             clienteRecibido = (Cliente) this.getIntent().getSerializableExtra("vieneDeLista");
             ModoDetalles();
@@ -94,6 +101,11 @@ public class RegistrarCliente extends AppCompatActivity {
                 ModoEdicion();
             }
         });
+        if(esAdmin){
+            btnEliminarCliente.setVisibility(View.VISIBLE);
+            btnEliminarCliente.setEnabled(false);
+            btnEliminarCliente.setBackgroundColor(Color.LTGRAY);
+        }
     }
 
     private void ModoEdicion() {
@@ -117,6 +129,10 @@ public class RegistrarCliente extends AppCompatActivity {
                 Editar();
             }
         });
+        if(esAdmin){
+            btnEliminarCliente.setEnabled(true);
+            btnEliminarCliente.setBackgroundColor(rojitoOscuro);
+        }
     }
 
     public void Editar() {

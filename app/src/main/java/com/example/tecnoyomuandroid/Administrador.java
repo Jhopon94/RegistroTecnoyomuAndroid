@@ -35,11 +35,13 @@ public class Administrador extends AppCompatActivity {
 
     public void AbrirClientes(View vista){
         Intent intent = new Intent(this, Clientes.class);
+        intent.putExtra("esAdmin", true);
         startActivity(intent);
     }
 
     public void AbrirEquipos(View vista){
         Intent intent = new Intent(this, Equipos.class);
+        intent.putExtra("esAdmin", true);
         startActivity(intent);
     }
 

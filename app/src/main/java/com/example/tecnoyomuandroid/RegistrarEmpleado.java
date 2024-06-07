@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,8 +25,10 @@ public class RegistrarEmpleado extends AppCompatActivity {
     private EditText cajitaDireccion;
     private EditText cajitaCorreo;
     private Button btnRegistrar;
+    private Button btnEliminarEmpleado;
     private boolean vieneDeLista;
     private Empleado empleadoDesdeLista;
+    private int colorRojoOscuroYomu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,11 @@ public class RegistrarEmpleado extends AppCompatActivity {
         cajitaDireccion = (EditText) findViewById(R.id.cajitaAbonoEquipoReg);
         cajitaCorreo = (EditText) findViewById(R.id.cajitaCorreoCliente);
         btnRegistrar = (Button) findViewById(R.id.btnRegistrarCliente);
+        btnEliminarEmpleado = (Button) findViewById(R.id.btnEliminarEmpleado);
+        //Inicalizar con el boton eliminar escondido a menos que venga desde lista
+        btnEliminarEmpleado.setVisibility(View.GONE);
+        //Guardar el color rojo oscuro
+        colorRojoOscuroYomu = btnEliminarEmpleado.getSolidColor();
         empleadoDesdeLista = new Empleado();
 
         //Entrar en modo detalles si viene desde la lista
@@ -125,6 +133,8 @@ public class RegistrarEmpleado extends AppCompatActivity {
                 Editar(v);
             }
         });
+        btnEliminarEmpleado.setEnabled(true);
+        btnEliminarEmpleado.setBackgroundColor(colorRojoOscuroYomu);
     }
 
     private void modoDetalles() {
@@ -160,6 +170,10 @@ public class RegistrarEmpleado extends AppCompatActivity {
                 modoEditar();
             }
         });
+        btnEliminarEmpleado.setVisibility(View.VISIBLE);
+        btnEliminarEmpleado.setEnabled(false);
+        btnEliminarEmpleado.getSolidColor();
+        btnEliminarEmpleado.setBackgroundColor(Color.LTGRAY);
     }
 
     private void EnviarResultadoALista() {
