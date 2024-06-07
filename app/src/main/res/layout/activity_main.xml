@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/logo_yomu" />
 
     <EditText
-        android:id="@+id/cajitaUsuario"
+        android:id="@+id/cajitaUsuarioLogin"
         android:layout_width="332dp"
         android:layout_height="60dp"
         android:layout_marginTop="81dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/cajitaClaveUsuario"
+        android:id="@+id/cajitaClaveLogin"
         android:layout_width="332dp"
         android:layout_height="60dp"
         android:layout_marginTop="52dp"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/cajitaUsuarioLogin"
         android:textColor="@color/black"
         android:textColorHint="@color/grisHint"/>
 
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajitaClaveUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/cajitaClaveLogin"
         app:strokeColor="#000"
         app:strokeWidth="2dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

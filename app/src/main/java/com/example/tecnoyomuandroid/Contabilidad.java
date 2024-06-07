@@ -2,6 +2,7 @@ package com.example.tecnoyomuandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,12 @@ public class Contabilidad extends AppCompatActivity {
     }
 
     public void CerrarSesion(View vista){
-        finish();
+        if(!vieneDesdeAdmon){
+            Intent intent = new Intent();
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+        }else{
+            finish();
+        }
     }
 }

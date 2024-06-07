@@ -107,7 +107,14 @@ public class ListaEquiposIngresados extends AppCompatActivity {
         }
     }
 
-    public void Cancelar(View vista) {
+    private void FinalizarConResultado(){
+        Intent intent = new Intent();
+        setResult(Activity.RESULT_OK, intent);
         finish();
+    }
+
+    public void Cancelar(View vista) {
+        if(vieneDeReparacion)FinalizarConResultado();
+        else finish();
     }
 }
